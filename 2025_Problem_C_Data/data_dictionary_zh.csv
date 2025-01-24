@@ -1,0 +1,60 @@
+summerOly_medal_counts.csv,国家~奖牌数~年份,
+variables,explanation,example
+Rank,排名,"1, 2"
+NOC,记录的国家名,"China, France"
+Gold,金牌数,"0, 1, 2"
+Silver,银牌数,"0, 1, 2"
+Bronze,铜牌数,"0, 1, 2"
+Total,总奖牌数,"0, 1, 2"
+Year,年份,"1896, 1900"
+,,
+,,
+summerOly_hosts.csv,举办者,
+variables,explanation,example
+Year,年份,"1896, 1900"
+Host,"主办地(城市, 国家)","St. Louis, United States"
+,,
+,,
+summerOly_programs.csv,项目~各年次数,
+variables,explanation,example
+Sport,奥运会运动分类通常分为三个级别：运动 (Sport)、分项 (Discipline) 和小项 (Event)。,"Aquatics, Cycling"
+Discipline,分项,"Artistic swimming, Diving"
+Code,分项 (Discipline) 代码,"SWA, DIV"
+Year,这一年该分项 (Discipline) 有几个小项 (Event),"0, 1"
+Data set of current and discontinued summer program.,当前和已终止的暑期项目数据集,
+Column Descriptors,列描述符,
+Sport and Discipline: ,The sports (and disciplines) make up the current and discontinued Summer Olympic Games official program and are listed alphabetically according to the name used by the IOC. ,
+运动和项目： ,这些运动（和项目）构成了当前和已停办的夏季奥运会正式项目，并根据国际奥委会使用的名称按字母顺序排列。,
+Code: ,分项 (Discipline)识别码 ,
+Sports Governing Body:,体育管理机构,
+1896 � 2028: ,每列中的四个数字代码代表相关奥运会的年份 ,
+Figures in each cell of the associated column indicate the number of events for each sport (or disciplane) contested at the respective Games; a bullet (�) denotes that the sport was contested as a demonstration or unofficial sport. ,,
+相关栏中每个单元格中的数字表示每个运动项目（或学科）在相应奥运会上的比赛项目数量；圆点（ � ）表示该运动项目是示范项目或非正式项目。,,
+"* The 1906 Intercalated Olympic Games were to be a series of International Olympic Games halfway between what is now known as the Games of the Olympiad. This proposed series of Games was always to be held in Athens and was to have equal status with the international Games. However, the only such Games were held in 1906.",,
+"S1^ The World Baseball Softball Confederation, which currently governs both baseball and softball, was created by a 2013 merger of two former governing bodies � the International Baseball Federation and the International Softball Federation. Baseball and softball were governed separately at all Olympics before 2013.",,
+S2^ AIBA/IBA was the recognised body of boxing until 2023.,,
+"S3^ Sailing and rowing were included in the program of the 1896 Games, but were cancelled due to bad weather.",,
+"S4^ At the time skateboarding was announced as part of the 2020 Summer Games, the sport was governed by the International Skateboarding Federation. That body merged with F�d�ration Internationale de Roller Sports in September 2017 to form the current World Skate.",,
+"S5^ Before 1924, ice sports like figure skating and ice hockey were held at the Summer Olympic Games. These two sports made their debuts at the 1908 and the 1920 Summer Olympics respectively, but in 1924 they were moved to the first edition of the Winter Olympic Games and became permanent fixtures on the sports program for the Winter Olympics from then on.",,
+Sourced from Wikipedia https://en.wikipedia.org/wiki/Olympic_sports,,
+1906年的校际奥林匹克运动会（Intercalated Olympic Games）是一系列国际奥林匹克运动会，介于现在的奥林匹克运动会（Games of the Olympiad）之间。拟议中的系列运动会始终在雅典举行，并与国际运动会享有同等地位。然而，唯一一届此类运动会于 1906 年举行、,,
+S1^世界棒球垒球联合会（World Baseball Softball Confederation）目前同时管理棒球和垒球，由两个前管理机构--国际棒球联合会（International Baseball Federation）和国际垒球联合会（International Softball Federation）--于 2013 年合并而成。在 2013 年之前，棒球和垒球在历届奥运会上都是分开管理的,,
+S2^ 国际拳击协会（AIBA/IBA）在 2023 年之前一直是拳击运动的认可机构,,
+S3^帆船和赛艇曾被列入 1896 年奥运会项目，但因天气恶劣而取消,,
+S4^ 在滑板运动被宣布为 2020 年夏季运动会的一部分时，这项运动由国际滑板联合会（International Skateboarding Federation）管理。该机构于 2017 年 9 月与国际轮滑运动联合会（F�d�ration Internationale de Roller Sports）合并，成立了现在的世界滑板协会（World Skate）,,
+S5^ 在 1924 年之前，花样滑冰和冰球等冰上运动项目在夏季奥运会上举行。这两项运动分别在 1908 年和 1920 年夏季奥运会上首次亮相，但在 1924 年被移至第一届冬季奥运会，从此成为冬奥会体育项目的永久项目。,,
+来源于维基百科 https://en.wikipedia.org/wiki/Olympic_sports,通过DeepL.com（免费版）翻译,
+,,
+,,
+summerOly_athletes.csv,运动员~年份~国家~项目~奖牌,
+variables,explanation,example
+Name,人名,"Cai Yun, Carl Lewis"
+Sex,性别,"F, M"
+Team,国家,"China, France"
+NOC,国家代码,"CHN, FRA"
+Year,年份,"1896, 1900"
+Season,季节类别,Summer
+City,奥运举办城市,"Beijing, Paris"
+Sport,运动 (Sport)大类,"Aquatics, Cycling"
+Event,运动 (Sport)里的小项 (Event),Gymnastics Men's Rings
+Medal,获奖情况,"No medal, Gold"
