@@ -14,10 +14,14 @@ variables,explanation,example
 Year,年份,"1896, 1900"
 Host,"主办地(城市, 国家)","St. Louis, United States"
 ,,
+奥运会运动项目的分类主要分为三个级别：大项（SPORT）、分项（DISCIPLINES）和小项（EVENT）。,,
+大项（SPORT）：这是奥运会比赛项目分类的最高级别，每个大项下可以包含多个分项。例如，游泳是大项之一，它包括了花样游泳、跳水、马拉松游泳、竞技游泳和水球等多个分项。,,
+分项（DISCIPLINES）：分项是大项下的具体运动类型。例如，游泳大项下的跳水就是一个分项，它又包含了不同的比赛项目。,,
+小项（EVENT）：小项是分项下的具体比赛项目，通常根据性别、年龄、比赛形式等进一步细分。例如，游泳分项中的男子100米自由泳和女子100米自由泳就是不同的小项。,,
 ,,
 summerOly_programs.csv,项目~各年次数,
 variables,explanation,example
-Sport,奥运会运动分类通常分为三个级别：运动 (Sport)、分项 (Discipline) 和小项 (Event)。,"Aquatics, Cycling"
+Sport,运动 (Sport),"Aquatics, Cycling"
 Discipline,分项,"Artistic swimming, Diving"
 Code,分项 (Discipline) 代码,"SWA, DIV"
 Year,这一年该分项 (Discipline) 有几个小项 (Event),"0, 1"

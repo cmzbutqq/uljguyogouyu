@@ -6,7 +6,7 @@ import numpy as np
 folder = "2025_Problem_C_Data/"
 
 
-def load(file_name, encoding="latin1"):
+def load(file_name, encoding="utf8"):
     return pd.read_csv(folder + file_name, encoding=encoding)
 
 # 运动员~年份~国家~项目~奖牌
