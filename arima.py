@@ -55,7 +55,7 @@ def difference_until_stationary(series, max_diff=3):
 
 # 绘制自相关和偏自相关图
 def plot_acf_pacf(series):
-    plt.figure(figsize=(12, 6))
+    fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
     plot_acf(series, ax=plt.gca())
     plt.title('时间序列自相关图（ACF），用于分析滞后期之间的相关性')
@@ -64,12 +64,12 @@ def plot_acf_pacf(series):
     plot_pacf(series, ax=plt.gca())
     plt.title('时间序列偏自相关图（PACF），用于分析去除其他滞后期影响后的相关性')
     
-    plt.show()
+    return fig
 
 # 事后检验：残差分析
 def residual_analysis(model, series):
     residuals = model.resid
-    plt.figure(figsize=(12, 6))
+    resid_fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
     plot_acf(residuals, ax=plt.gca())
     plt.title('模型残差的自相关图，检验残差的相关性结构')
@@ -78,12 +78,11 @@ def residual_analysis(model, series):
     plot_pacf(residuals, ax=plt.gca())
     plt.title('模型残差的偏自相关图，检验残差的相关性结构')
     
-    plt.show()
+    
 
     # QQ 图
-    qqplot(residuals, line='s')
+    qq_fig=qqplot(residuals, line='s')
     plt.title('残差正态性检验：QQ图，检查模型残差是否服从正态分布')
-    plt.show()
 
     # 正态性检验
     _, p_value = shapiro(residuals)
@@ -92,6 +91,8 @@ def residual_analysis(model, series):
         print("残差序列接近正态分布")
     else:
         print("残差序列不服从正态分布")
+    
+    return resid_fig,qq_fig
 
 # 自动选择 ARIMA 模型的 p 和 q 值
 def auto_select_pq(series, max_p=5, max_q=5):
@@ -130,7 +131,7 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
         forecast_cumsum -= diff_series.iloc[-1]
         forecast_cumsum+=series.iloc[-1]
     # 绘制预测结果与实际值的折线图
-    plt.figure(figsize=(10, 6))
+    fig = plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
     #type(forecast_cumsum) <class 'pandas.core.series.Series'>
     #forecast_cumsum -> idx:2028-01-01    val:123.079235 ...
@@ -139,7 +140,7 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
     plt.plot(forecast_cumsum)
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
-    plt.show()
+    return fig
 # 生成模拟时间序列数据
 def generate_test_series():
     np.random.seed(0)
@@ -168,7 +169,7 @@ def main(country):
         diff_count = 0
     
     # 绘制自相关和偏自相关图，帮助选择 ARIMA 模型参数
-    plot_acf_pacf(diff_series)
+    fig1=plot_acf_pacf(diff_series)
     
     # 自动选择 p, q 值
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
@@ -177,10 +178,15 @@ def main(country):
     print(f"最优模型：ARIMA{best_order}")
     
     # 预测并绘制结果
-    forecast_and_plot(series, best_model, n_forecast=10, diff_series=diff_series, diff_count=diff_count)
+    fig2=forecast_and_plot(series, best_model, n_forecast=10, diff_series=diff_series, diff_count=diff_count)
     
     # 事后检验：残差分析
-    residual_analysis(best_model, series)
+    fig3,fig4=residual_analysis(best_model, series)
+    
+    fig1.savefig(f"plots/temp/{country}_fig1.png")
+    fig2.savefig(f"plots/temp/{country}_fig2.png")
+    fig3.savefig(f"plots/temp/{country}_fig3.png")
+    fig4.savefig(f"plots/temp/{country}_fig4.png")
 
 if __name__ == "__main__":
     main('United States')
