@@ -1,3 +1,5 @@
+import warnings
+warnings.filterwarnings("ignore")
 import pandas as pd
 import numpy as np
 from statsmodels.tsa.arima.model import ARIMA
@@ -7,17 +9,18 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
 FREQ='4YS-JAN'
+BEGIN_YEAR = 1992
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
 #读取csv
 path="2025_Problem_C_Data/summerOly_medal_counts.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
-medal_counts = pd.read_csv(path)
+MEDAL_COUNTS = pd.read_csv(path)
 
 #选取指定国家
 def get_country_data(NOC):
-    data = medal_counts[(medal_counts['NOC']==NOC)&(medal_counts['Year']>=1992)]
+    data = MEDAL_COUNTS[(MEDAL_COUNTS['NOC']==NOC)&(MEDAL_COUNTS['Year']>=BEGIN_YEAR)]
     #年份不能重复
     assert not data['Year'].duplicated().any(),"a country with MULTIPLE records in ONE YEAR"
     # 按year排序
@@ -26,8 +29,11 @@ def get_country_data(NOC):
     data = data[['Year','Total']]
     data['Year'] = pd.to_datetime(data['Year'], format='%Y')
     data.set_index('Year', inplace=True)
+    # 给缺少的年份插值
+    data = data.resample(FREQ).interpolate(method='linear')
     # 4年一度
-    data.index.freq = '4AS-JAN'
+    data.index.freq = FREQ
+    
     return data
 
 # 事前检验：ADF 检验平稳性
@@ -183,10 +189,12 @@ def main(country):
     # 事后检验：残差分析
     fig3,fig4=residual_analysis(best_model, series)
     
-    fig1.savefig(f"plots/temp/{country}_fig1.png")
-    fig2.savefig(f"plots/temp/{country}_fig2.png")
-    fig3.savefig(f"plots/temp/{country}_fig3.png")
-    fig4.savefig(f"plots/temp/{country}_fig4.png")
+    fig1.savefig(f"plots/arima/{country}_{BEGIN_YEAR}_acf-pacf.png")
+    fig2.savefig(f"plots/arima/{country}_{BEGIN_YEAR}_forecast.png")
+    fig3.savefig(f"plots/arima/{country}_{BEGIN_YEAR}_resid-acf-pacf.png")
+    fig4.savefig(f"plots/arima/{country}_{BEGIN_YEAR}_qqplot.png")
 
 if __name__ == "__main__":
-    main('United States')
+    # for NOC in MEDAL_COUNTS['NOC'].unique():
+    for NOC in ['Austria','China']:
+        main(NOC)
