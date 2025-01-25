@@ -1,0 +1,506 @@
+01-26 01:51:16:	len(countries)=141
+01-26 01:51:16:		0	TRYING NOC='Unified Team':
+01-26 01:51:16:	
+
+Unified Team TOO SMALL SAMPLES
+
+01-26 01:51:16:		1	TRYING NOC='United States':
+01-26 01:51:19:		2	TRYING NOC='Germany':
+01-26 01:51:23:		3	TRYING NOC='China':
+01-26 01:51:26:		4	TRYING NOC='Cuba':
+01-26 01:51:29:		5	TRYING NOC='Spain':
+01-26 01:51:32:		6	TRYING NOC='South Korea':
+01-26 01:51:35:		7	TRYING NOC='Hungary':
+01-26 01:51:39:		8	TRYING NOC='France':
+01-26 01:51:42:		9	TRYING NOC='Australia':
+01-26 01:51:46:		10	TRYING NOC='Canada':
+01-26 01:51:49:		11	TRYING NOC='Italy':
+01-26 01:51:53:		12	TRYING NOC='Great Britain':
+01-26 01:51:56:		13	TRYING NOC='Romania':
+01-26 01:52:00:		14	TRYING NOC='Czechoslovakia':
+01-26 01:52:00:	
+
+Czechoslovakia TOO SMALL SAMPLES
+
+01-26 01:52:00:		15	TRYING NOC='North Korea':
+01-26 01:52:03:		16	TRYING NOC='Japan':
+01-26 01:52:07:		17	TRYING NOC='Bulgaria':
+01-26 01:52:10:		18	TRYING NOC='Poland':
+01-26 01:52:14:		19	TRYING NOC='Netherlands':
+01-26 01:52:17:		20	TRYING NOC='Kenya':
+01-26 01:52:21:		21	TRYING NOC='Norway':
+01-26 01:52:24:		22	TRYING NOC='Turkey':
+01-26 01:52:28:		23	TRYING NOC='Indonesia':
+01-26 01:52:31:		24	TRYING NOC='Brazil':
+01-26 01:52:35:		25	TRYING NOC='Greece':
+01-26 01:52:39:		26	TRYING NOC='Sweden':
+01-26 01:52:43:		27	TRYING NOC='New Zealand':
+01-26 01:52:46:		28	TRYING NOC='Finland':
+01-26 01:52:50:		29	TRYING NOC='Denmark':
+01-26 01:52:54:		30	TRYING NOC='Morocco':
+01-26 01:52:57:		31	TRYING NOC='Ireland':
+01-26 01:53:00:		32	TRYING NOC='Ethiopia':
+01-26 01:53:04:		33	TRYING NOC='Algeria':
+01-26 01:53:07:		34	TRYING NOC='Estonia':
+01-26 01:53:11:		35	TRYING NOC='Lithuania':
+01-26 01:53:14:		36	TRYING NOC='Switzerland':
+01-26 01:53:18:		37	TRYING NOC='Jamaica':
+01-26 01:53:21:		38	TRYING NOC='Nigeria':
+01-26 01:53:25:		39	TRYING NOC='Latvia':
+01-26 01:53:28:		40	TRYING NOC='Austria':
+01-26 01:53:32:		41	TRYING NOC='Namibia':
+01-26 01:53:33:		42	TRYING NOC='South Africa':
+01-26 01:53:37:		43	TRYING NOC='Belgium':
+01-26 01:53:41:		44	TRYING NOC='Croatia':
+01-26 01:53:44:		45	TRYING NOC='Independent Olympic Participants':
+01-26 01:53:44:	
+
+Independent Olympic Participants TOO SMALL SAMPLES
+
+01-26 01:53:44:		46	TRYING NOC='Iran':
+01-26 01:53:47:		47	TRYING NOC='Israel':
+01-26 01:53:51:		48	TRYING NOC='Chinese Taipei':
+01-26 01:53:54:		49	TRYING NOC='Mexico':
+01-26 01:53:58:		50	TRYING NOC='Peru':
+01-26 01:53:58:	
+
+
+
+ERROR in NOC='Peru': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:53:58:		51	TRYING NOC='Mongolia':
+01-26 01:54:01:		52	TRYING NOC='Slovenia':
+01-26 01:54:05:		53	TRYING NOC='Argentina':
+01-26 01:54:09:		54	TRYING NOC='Bahamas':
+01-26 01:54:12:		55	TRYING NOC='Colombia':
+01-26 01:54:16:		56	TRYING NOC='Ghana':
+01-26 01:54:16:	
+
+
+
+ERROR in NOC='Ghana': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:54:16:		57	TRYING NOC='Malaysia':
+01-26 01:54:20:		58	TRYING NOC='Pakistan':
+01-26 01:54:20:	
+
+
+
+ERROR in NOC='Pakistan': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:54:20:		59	TRYING NOC='Philippines':
+01-26 01:54:23:		60	TRYING NOC='Puerto Rico':
+01-26 01:54:27:		61	TRYING NOC='Qatar':
+01-26 01:54:30:		62	TRYING NOC='Suriname':
+01-26 01:54:30:	
+
+Suriname TOO SMALL SAMPLES
+
+01-26 01:54:30:		63	TRYING NOC='Thailand':
+01-26 01:54:33:		64	TRYING NOC='Russia':
+01-26 01:54:33:	
+
+
+
+ERROR in NOC='Russia': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:54:33:		65	TRYING NOC='Ukraine':
+01-26 01:54:37:		66	TRYING NOC='Czech Republic':
+01-26 01:54:41:		67	TRYING NOC='Kazakhstan':
+01-26 01:54:45:		68	TRYING NOC='Belarus':
+01-26 01:54:49:		69	TRYING NOC='FR Yugoslavia':
+01-26 01:54:49:	
+
+
+
+ERROR in NOC='FR Yugoslavia': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:54:49:		70	TRYING NOC='Slovakia':
+01-26 01:54:52:		71	TRYING NOC='Armenia':
+01-26 01:54:56:		72	TRYING NOC='Portugal':
+01-26 01:55:00:		73	TRYING NOC='Burundi':
+01-26 01:55:00:	
+
+
+
+ERROR in NOC='Burundi': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:00:		74	TRYING NOC='Costa Rica':
+01-26 01:55:00:	
+
+
+
+ERROR in NOC='Costa Rica': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:00:		75	TRYING NOC='Ecuador':
+01-26 01:55:04:		76	TRYING NOC='Hong Kong':
+01-26 01:55:08:		77	TRYING NOC='Syria':
+01-26 01:55:08:	
+
+
+
+ERROR in NOC='Syria': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:08:		78	TRYING NOC='Moldova':
+01-26 01:55:12:		79	TRYING NOC='Uzbekistan':
+01-26 01:55:16:		80	TRYING NOC='Azerbaijan':
+01-26 01:55:19:		81	TRYING NOC='Tonga':
+01-26 01:55:19:	
+
+Tonga TOO SMALL SAMPLES
+
+01-26 01:55:19:		82	TRYING NOC='Zambia':
+01-26 01:55:19:	
+
+
+
+ERROR in NOC='Zambia': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:19:		83	TRYING NOC='Georgia':
+01-26 01:55:23:		84	TRYING NOC='Trinidad and Tobago':
+01-26 01:55:27:		85	TRYING NOC='India':
+01-26 01:55:31:		86	TRYING NOC='Mozambique':
+01-26 01:55:32:	
+
+
+
+ERROR in NOC='Mozambique': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:32:		87	TRYING NOC='Tunisia':
+01-26 01:55:35:		88	TRYING NOC='Uganda':
+01-26 01:55:39:		89	TRYING NOC='Cameroon':
+01-26 01:55:39:	
+
+
+
+ERROR in NOC='Cameroon': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:39:		90	TRYING NOC='Saudi Arabia':
+01-26 01:55:39:	
+
+
+
+ERROR in NOC='Saudi Arabia': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:39:		91	TRYING NOC='Sri Lanka':
+01-26 01:55:39:	
+
+Sri Lanka TOO SMALL SAMPLES
+
+01-26 01:55:39:		92	TRYING NOC='Uruguay':
+01-26 01:55:39:	
+
+Uruguay TOO SMALL SAMPLES
+
+01-26 01:55:39:		93	TRYING NOC='Vietnam':
+01-26 01:55:40:		94	TRYING NOC='Barbados':
+01-26 01:55:40:	
+
+Barbados TOO SMALL SAMPLES
+
+01-26 01:55:40:		95	TRYING NOC='Chile':
+01-26 01:55:44:		96	TRYING NOC='Iceland':
+01-26 01:55:44:	
+
+
+
+ERROR in NOC='Iceland': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:44:		97	TRYING NOC='Kuwait':
+01-26 01:55:44:	
+
+
+
+ERROR in NOC='Kuwait': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:44:		98	TRYING NOC='Kyrgyzstan':
+01-26 01:55:46:		99	TRYING NOC='Macedonia':
+01-26 01:55:46:	
+
+Macedonia TOO SMALL SAMPLES
+
+01-26 01:55:46:		100	TRYING NOC='Egypt':
+01-26 01:55:50:		101	TRYING NOC='Zimbabwe':
+01-26 01:55:50:	
+
+
+
+ERROR in NOC='Zimbabwe': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:50:		102	TRYING NOC='Dominican Republic':
+01-26 01:55:54:		103	TRYING NOC='United Arab Emirates':
+01-26 01:55:54:	
+
+
+
+ERROR in NOC='United Arab Emirates': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:54:		104	TRYING NOC='Serbia and Montenegro':
+01-26 01:55:54:	
+
+Serbia and Montenegro TOO SMALL SAMPLES
+
+01-26 01:55:54:		105	TRYING NOC='Paraguay':
+01-26 01:55:54:	
+
+Paraguay TOO SMALL SAMPLES
+
+01-26 01:55:54:		106	TRYING NOC='Venezuela':
+01-26 01:55:54:	
+
+
+
+ERROR in NOC='Venezuela': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:54:		107	TRYING NOC='Eritrea':
+01-26 01:55:54:	
+
+Eritrea TOO SMALL SAMPLES
+
+01-26 01:55:54:		108	TRYING NOC='Panama':
+01-26 01:55:54:	
+
+
+
+ERROR in NOC='Panama': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:54:		109	TRYING NOC='Serbia':
+01-26 01:55:54:	
+
+
+
+ERROR in NOC='Serbia': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:54:		110	TRYING NOC='Tajikistan':
+01-26 01:55:54:	
+
+
+
+ERROR in NOC='Tajikistan': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:54:		111	TRYING NOC='Samoa':
+01-26 01:55:54:	
+
+Samoa TOO SMALL SAMPLES
+
+01-26 01:55:54:		112	TRYING NOC='Singapore':
+01-26 01:55:59:		113	TRYING NOC='Sudan':
+01-26 01:55:59:	
+
+Sudan TOO SMALL SAMPLES
+
+01-26 01:55:59:		114	TRYING NOC='Afghanistan':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Afghanistan': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		115	TRYING NOC='Mauritius':
+01-26 01:55:59:	
+
+Mauritius TOO SMALL SAMPLES
+
+01-26 01:55:59:		116	TRYING NOC='Togo':
+01-26 01:55:59:	
+
+Togo TOO SMALL SAMPLES
+
+01-26 01:55:59:		117	TRYING NOC='Bahrain':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Bahrain': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		118	TRYING NOC='Grenada':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Grenada': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		119	TRYING NOC='Botswana':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Botswana': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		120	TRYING NOC='Cyprus':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Cyprus': Invalid input, x is constant, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		121	TRYING NOC='Gabon':
+01-26 01:55:59:	
+
+Gabon TOO SMALL SAMPLES
+
+01-26 01:55:59:		122	TRYING NOC='Guatemala':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Guatemala': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		123	TRYING NOC='Montenegro':
+01-26 01:55:59:	
+
+Montenegro TOO SMALL SAMPLES
+
+01-26 01:55:59:		124	TRYING NOC='Independent Olympic Athletes':
+01-26 01:55:59:	
+
+Independent Olympic Athletes TOO SMALL SAMPLES
+
+01-26 01:55:59:		125	TRYING NOC='Ivory Coast':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Ivory Coast': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		126	TRYING NOC='Fiji':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Fiji': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		127	TRYING NOC='Jordan':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Jordan': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		128	TRYING NOC='Kosovo':
+01-26 01:55:59:	
+
+
+
+ERROR in NOC='Kosovo': sample size is too short to use selected regression component, type(e)=<class 'ValueError'>
+
+
+
+01-26 01:55:59:		129	TRYING NOC='Niger':
+01-26 01:55:59:	
+
+Niger TOO SMALL SAMPLES
+
+01-26 01:55:59:		130	TRYING NOC='ROC':
+01-26 01:55:59:	
+
+ROC TOO SMALL SAMPLES
+
+01-26 01:55:59:		131	TRYING NOC='Bermuda':
+01-26 01:55:59:	
+
+Bermuda TOO SMALL SAMPLES
+
+01-26 01:55:59:		132	TRYING NOC='San Marino':
+01-26 01:55:59:	
+
+San Marino TOO SMALL SAMPLES
+
+01-26 01:55:59:		133	TRYING NOC='North Macedonia':
+01-26 01:55:59:	
+
+North Macedonia TOO SMALL SAMPLES
+
+01-26 01:55:59:		134	TRYING NOC='Turkmenistan':
+01-26 01:55:59:	
+
+Turkmenistan TOO SMALL SAMPLES
+
+01-26 01:55:59:		135	TRYING NOC='Burkina Faso':
+01-26 01:55:59:	
+
+Burkina Faso TOO SMALL SAMPLES
+
+01-26 01:55:59:		136	TRYING NOC='Saint Lucia':
+01-26 01:55:59:	
+
+Saint Lucia TOO SMALL SAMPLES
+
+01-26 01:55:59:		137	TRYING NOC='Dominica':
+01-26 01:55:59:	
+
+Dominica TOO SMALL SAMPLES
+
+01-26 01:55:59:		138	TRYING NOC='Albania':
+01-26 01:55:59:	
+
+Albania TOO SMALL SAMPLES
+
+01-26 01:55:59:		139	TRYING NOC='Cabo Verde':
+01-26 01:55:59:	
+
+Cabo Verde TOO SMALL SAMPLES
+
+01-26 01:55:59:		140	TRYING NOC='Refugee Olympic Team':
+01-26 01:55:59:	
+
+Refugee Olympic Team TOO SMALL SAMPLES
+
