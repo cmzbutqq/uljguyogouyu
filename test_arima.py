@@ -14,7 +14,7 @@ plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
 def generate_test_series():
     np.random.seed(0)
     # 生成一个时间序列数据，包含趋势和随机噪声
-    dates = pd.date_range(start='2020-01-01', periods=100, freq='D')
+    dates = pd.date_range(start='2020-01-01', periods=100, freq='4YS-JAN')
     trend = np.linspace(10, 50, 100)  # 线性趋势
     noise = np.random.normal(0, 0, size=100)  # 随机噪声
     series = trend + noise
@@ -126,7 +126,7 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
     # 绘制预测结果与实际值的折线图
     plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
-    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq='D')[1:], forecast_cumsum, label="预测值", color='red')  # 修正这里
+    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq='4YS-JAN')[1:], forecast_cumsum+series.iloc[-1], label="预测值", color='red')  # 修正这里
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
     plt.show()

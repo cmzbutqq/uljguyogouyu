@@ -6,7 +6,7 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
-FREQ='D'
+FREQ='4YS-JAN'
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
@@ -126,11 +126,10 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
         for i in range(diff_count):
             forecast_cumsum = forecast_cumsum.cumsum()  # 累加每次差分的结果
             forecast_cumsum += diff_series.iloc[-1]  # 加上最后一个差分值
-            
     # 绘制预测结果与实际值的折线图
     plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
-    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq=FREQ)[1:], forecast_cumsum, label="预测值", color='red')  # 修正这里
+    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq=FREQ)[1:], forecast_cumsum+series.iloc[-1], label="预测值", color='red')  # 修正这里
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
     plt.show()
@@ -146,8 +145,7 @@ def generate_test_series():
     return data
 
 # 主程序
-if __name__ == "__main__":
-    country='China'
+def main(country):
     data= get_country_data(country)
     # 选择要建模的序列（例如：'Value' 列）
     series = data['Total']
@@ -177,3 +175,5 @@ if __name__ == "__main__":
     # 事后检验：残差分析
     residual_analysis(best_model, series)
 
+if __name__ == "__main__":
+    main('China')
