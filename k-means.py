@@ -73,38 +73,4 @@ for NOC, group in grouped:
 results=results.sort_values(by='Medals', ascending=False)
 print(results)
 # 保存结果
-# results.to_csv('results.csv', index=False)
-
-
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-# import
-# pandas as pd
-# import numpy as np
-# from sklearn.cluster import KMeans
-
-# #'Name', 'Sex', 'Team', 'NOC', 'Year', 'City', 'Sport', 'Event','Medal'
-# athlete_df = pd.read_csv("2025_Problem_C_Data/summerOly_athletes.csv")
-# X_dict={
-#     'NOC':athlete_df['NOC'].unique(),
-# }
-# X=pd.DataFrame(X_dict) 
-
-# print(X)
-# X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.60, random_state=0)
-
-# # 使用KMeans聚类
-# kmeans = KMeans(n_clusters=4)
-# kmeans.fit(X)
-# y_kmeans = kmeans.predict(X)
-
-# # 绘制结果
-# plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap="viridis")
-
-# # 绘制聚类中心
-# centers = kmeans.cluster_centers_
-# plt.scatter(centers[:, 0], centers[:, 1], c="black", s=200, alpha=0.5)
-# plt.title("K-means Clustering")
-# plt.xlabel("Feature 1")
-# plt.ylabel("Feature 2")
-# plt.show()
+results.to_csv('countries.csv', index=False)
