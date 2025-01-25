@@ -12,7 +12,7 @@ BEGIN_YEAR = 1992
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
-SAVE_FOLDER = "plots/arima/"
+SAVE_FOLDER = f"plots/arima/{BEGIN_YEAR}/"
 #读取csv
 path="2025_Problem_C_Data/summerOly_medal_counts.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
@@ -24,13 +24,19 @@ def log_print(str):
     with open(SAVE_FOLDER+'log.txt', 'a') as f:
         f.write(f"{datetime.now().strftime('%m-%d %H:%M:%S')}:\t{str}\n")
     print(str)
+
+def err_print(str):
+    log_print("\n\n\n\n"+str+"\n\n\n")
+    with open(SAVE_FOLDER+'err.txt', 'a') as f:
+        f.write(f"{datetime.now().strftime('%m-%d %H:%M:%S')}:\t{str}\n")
+
 #选取指定国家
 def get_country_data(NOC):
     data = MEDAL_COUNTS[MEDAL_COUNTS['NOC']==NOC]
     #年份不能重复
     assert not data['Year'].duplicated().any(),"a country with MULTIPLE joins in ONE YEAR"
     # 按year排序
-    data.sort_values(by='Year',inplace=True)
+    data = data.sort_values(by='Year',inplace=False)
     # 选择年份和Total列
     data = data[['Year','Total']]
     data['Year'] = pd.to_datetime(data['Year'], format='%Y')
@@ -39,13 +45,12 @@ def get_country_data(NOC):
     data = data.resample(FREQ).interpolate(method='linear')
     # 4年一度
     data.index.freq = FREQ
-    
     return data
 
 # 事前检验：ADF 检验平稳性
 def adf_test(series):
     result = adfuller(series)
-    log_print(f'ADF 检验 p 值: {result[1]}')
+    print(f'ADF 检验 p 值: {result[1]}')
     return result[1]
 
 # 自动差分直到平稳
@@ -56,12 +61,12 @@ def difference_until_stationary(series, max_diff=3):
     while adf_test(diff_series) > 0.05 and diff_count < max_diff:
         diff_series = diff_series.diff().dropna()
         diff_count += 1
-        log_print(f"已进行 {diff_count} 次差分")
+        print(f"已进行 {diff_count} 次差分")
 
     if adf_test(diff_series) <= 0.05:
-        log_print("序列已经平稳")
+        print("序列已经平稳")
     else:
-        log_print("差分次数超过最大限制，序列仍然不平稳")
+        print("差分次数超过最大限制，序列仍然不平稳")
     
     return diff_series
 
@@ -98,11 +103,11 @@ def residual_analysis(model, series):
 
     # 正态性检验
     _, p_value = shapiro(residuals)
-    log_print(f"Shapiro-Wilk 正态性检验 p 值: {p_value}")
+    print(f"Shapiro-Wilk 正态性检验 p 值: {p_value}")
     if p_value > 0.05:
-        log_print("残差序列接近正态分布")
+        print("残差序列接近正态分布")
     else:
-        log_print("残差序列不服从正态分布")
+        print("残差序列不服从正态分布")
     
     return resid_fig,qq_fig
 
@@ -125,7 +130,7 @@ def auto_select_pq(series, max_p=5, max_q=5):
             except Exception as e:
                 continue  # 若模型拟合失败则跳过
 
-    log_print(f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}")
+    print(f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}")
     return best_model, best_order
 
 # 预测并绘制图表
@@ -169,11 +174,14 @@ def main(country):
     data= get_country_data(country)
     # 选择要建模的序列（例如：'Value' 列）
     series = data['Total']
+    if len(series) < 2:
+        log_print(f"\n\n{country} TOO SMALL SAMPLES\n")
+        return
     
     # 事前检验：平稳性检验，自动差分
-    log_print("初始序列平稳性检验：")
+    print("初始序列平稳性检验：")
     if adf_test(series) > 0.05:
-        log_print("序列非平稳，正在进行差分...")
+        print("序列非平稳，正在进行差分...")
         diff_series = difference_until_stationary(series)
         diff_count = 1  # 标记差分次数
     else:
@@ -187,7 +195,7 @@ def main(country):
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
     
     # 输出最优模型
-    log_print(f"最优模型：ARIMA{best_order}")
+    print(f"最优模型：ARIMA{best_order}")
     
     # 预测并绘制结果
     fig2=forecast_and_plot(series, best_model, n_forecast=10, diff_series=diff_series, diff_count=diff_count)
@@ -202,13 +210,13 @@ def main(country):
 
 if __name__ == "__main__":
     countries=MEDAL_COUNTS['NOC'].unique()
-    for NOC in countries:
-    # for NOC in ['Austria','China']:
-        log_print(f"\n\nTRYING {NOC=}:\n")
+    log_print(f"{len(countries)=}")
+    for i,NOC in enumerate(countries):
+        log_print(f"\t{i}\tTRYING {NOC=}:")
         try:
             main(NOC)
         except Exception as e:
-            log_print(f"\n\n\n\nERROR in {NOC=}: {e}\n\n\n")
+            err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
         plt.close('all')
         
     
