@@ -126,10 +126,13 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
         for i in range(diff_count):
             forecast_cumsum = forecast_cumsum.cumsum()  # 累加每次差分的结果
             forecast_cumsum += diff_series.iloc[-1]  # 加上最后一个差分值
+        #差分值改成原值
+        forecast_cumsum -= diff_series.iloc[-1]
+        forecast_cumsum+=series.iloc[-1]
     # 绘制预测结果与实际值的折线图
     plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
-    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq=FREQ)[1:], forecast_cumsum+series.iloc[-1], label="预测值", color='red')  # 修正这里
+    plt.plot(forecast_cumsum)
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
     plt.show()
