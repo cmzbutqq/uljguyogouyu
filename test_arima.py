@@ -1,33 +1,29 @@
 import pandas as pd
 import numpy as np
-from statsmodels.tsa.arima.model import ARIMA
 import matplotlib.pyplot as plt
-from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.stattools import adfuller, acf, pacf
+from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
-FREQ='D'
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
-#读取csv
-path="2025_Problem_C_Data/summerOly_medal_counts.csv"
-# Rank,NOC,Gold,Silver,Bronze,Total,Year
-medal_counts = pd.read_csv(path)
 
-#选取指定国家
-def get_country_data(NOC):
-    data = medal_counts[(medal_counts['NOC']==NOC)&(medal_counts['Year']>=1992)]
-    #年份不能重复
-    assert not data['Year'].duplicated().any(),"a country with MULTIPLE records in ONE YEAR"
-    # 按year排序
-    data.sort_values(by='Year',inplace=True)
-    # 选择年份和Total列
-    data = data[['Year','Total']]
-    data['Year'] = pd.to_datetime(data['Year'], format='%Y')
-    data.set_index('Year', inplace=True)
-    # 4年一度
-    data.index.freq = '4AS-JAN'
+# 生成模拟时间序列数据
+def generate_test_series():
+    np.random.seed(0)
+    # 生成一个时间序列数据，包含趋势和随机噪声
+    dates = pd.date_range(start='2020-01-01', periods=100, freq='D')
+    trend = np.linspace(10, 50, 100)  # 线性趋势
+    noise = np.random.normal(0, 0, size=100)  # 随机噪声
+    series = trend + noise
+    data = pd.DataFrame({'Value': series}, index=dates)
+    return data
+
+# 载入数据
+def load_data(filepath):
+    data = pd.read_csv(filepath, parse_dates=True, index_col='Date')
     return data
 
 # 事前检验：ADF 检验平稳性
@@ -130,27 +126,18 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
     # 绘制预测结果与实际值的折线图
     plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
-    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq=FREQ)[1:], forecast_cumsum, label="预测值", color='red')  # 修正这里
+    plt.plot(pd.date_range(series.index[-1], periods=n_forecast+1, freq='D')[1:], forecast_cumsum, label="预测值", color='red')  # 修正这里
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
     plt.show()
-# 生成模拟时间序列数据
-def generate_test_series():
-    np.random.seed(0)
-    # 生成一个时间序列数据，包含趋势和随机噪声
-    dates = pd.date_range(start='2020-01-01', periods=100, freq=FREQ)
-    trend = np.linspace(10, 50, 100)  # 线性趋势
-    noise = np.random.normal(0, 5, size=100)  # 随机噪声
-    series = trend + noise
-    data = pd.DataFrame({'Value': series}, index=dates)
-    return data
 
 # 主程序
 if __name__ == "__main__":
-    country='China'
-    data= get_country_data(country)
+    # 使用生成的测试序列
+    data = generate_test_series()
+    
     # 选择要建模的序列（例如：'Value' 列）
-    series = data['Total']
+    series = data['Value']
     
     # 事前检验：平稳性检验，自动差分
     print("初始序列平稳性检验：")
@@ -163,16 +150,16 @@ if __name__ == "__main__":
         diff_count = 0
     
     # 绘制自相关和偏自相关图，帮助选择 ARIMA 模型参数
-    plot_acf_pacf(diff_series)
+    # plot_acf_pacf(diff_series)
     
     # 自动选择 p, q 值
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
     
     # 输出最优模型
-    print(f"最优模型：ARIMA{best_order}")
+    print(f"\n{best_order=}\n")
     
     # 预测并绘制结果
-    forecast_and_plot(series, best_model, n_forecast=10, diff_series=diff_series, diff_count=diff_count)
+    forecast_and_plot(series, best_model, n_forecast=100, diff_series=diff_series, diff_count=diff_count)
     
     # 事后检验：残差分析
     residual_analysis(best_model, series)
