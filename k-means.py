@@ -18,12 +18,14 @@ for i in range(1, 11):
     kmeans.fit(X)
     wcss.append(kmeans.inertia_)
 
-plt.plot(range(1, 11), wcss)
-plt.title('Elbow Method')
-plt.xlabel('Number of clusters')
-plt.ylabel('WCSS')
-plt.show()
-# plt.savefig('plots/Elbow_Method.png')
+def plot_elbow_method():
+    plt.figure()
+    plt.plot(range(1, 11), wcss)
+    plt.title('Elbow Method')
+    plt.xlabel('Number of clusters')
+    plt.ylabel('WCSS')
+    plt.show()
+    # plt.savefig('plots/Elbow_Method.png')
 
 # 选择WCSS下降速度明显变缓的点作为K值
 k = 5 
@@ -44,23 +46,51 @@ print(cluster_stats.to_string(float_format='%.2f'))
 
 
 from sklearn.decomposition import PCA
+from sklearn.metrics import silhouette_samples, silhouette_score
+def plot2D():
+    # 使用PCA进行降维
+    pca = PCA(n_components=2)
+    df_pca = pca.fit_transform(df[features])
+    # 可视化
+    plt.figure()
+    plt.scatter(df_pca[:, 0], df_pca[:, 1], c=df['cluster'], cmap='viridis')
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
+    plt.title('2D KMeans Clustering after PCA')
+    plt.show()
+def plot3D():
+    # 使用PCA或t-SNE将数据降至3维
+    pca = PCA(n_components=3)
+    df_pca = pca.fit_transform(df[features])
+    # 可视化
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(df_pca[:, 0], df_pca[:, 1], df_pca[:, 2], c=df['cluster'], cmap='viridis')
+    plt.show()
 
-# 使用PCA进行降维
-pca = PCA(n_components=2)
-df_pca = pca.fit_transform(df[features])
-# 可视化
+def plot_silhouette(data, cluster_labels,n_clusters):
+    #TODO 修复这个函数
+    # 计算轮廓系数
+    silhouette_avg = silhouette_score(data, cluster_labels)
+    sample_silhouette_values = silhouette_samples(data, cluster_labels)
+
+    # 绘制轮廓图
+    y_lower = 10
+    for i in range(n_clusters):
+        ith_cluster_silhouette_values = sample_silhouette_values[cluster_labels == i]
+        ith_cluster_silhouette_values.sort()
+        
+        size_cluster_i = ith_cluster_silhouette_values.shape[0]
+        y_upper = y_lower + size_cluster_i
+        
+        color = plt.cm.nipy_spectral(float(i) / n_clusters)
+        plt.fill_betweenx(np.arange(y_lower, y_upper), 0, ith_cluster_silhouette_values, facecolor=color, edgecolor=color, alpha=0.7)
+        
+        y_lower = y_upper + 10
+
+    plt.show()
+import seaborn as sns
 plt.figure()
-plt.scatter(df_pca[:, 0], df_pca[:, 1], c=df['cluster'], cmap='viridis')
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.title('2D KMeans Clustering after PCA')
+sns.pairplot(df[features+['cluster']],hue='cluster')
 plt.show()
-# 使用PCA或t-SNE将数据降至3维
-pca = PCA(n_components=3)
-df_pca = pca.fit_transform(df[features])
-# 可视化
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(df_pca[:, 0], df_pca[:, 1], df_pca[:, 2], c=df['cluster'], cmap='viridis')
-plt.show()
-
+# plot_silhouette(df[features], df['cluster'],k)
