@@ -32,12 +32,19 @@ k = 5
 kmeans = KMeans(n_clusters=k, init='k-means++', random_state=SEED)
 df['cluster'] = kmeans.fit_predict(X)
 
+#保存
+df.to_csv('country_clusters.csv',index=False)
+
+
+
+
+
 # 分析聚类结果
+
 # 计算每个聚类的个数
 cluster_counts = df[features+['cluster']].groupby('cluster').size()
 print("Count of each cluster:")
 print(cluster_counts)
-
 # 选择数值列
 numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()
 # 使用groupby和agg方法计算每个数值列的均值和方差
