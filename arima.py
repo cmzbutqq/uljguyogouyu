@@ -132,6 +132,10 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
     # 绘制预测结果与实际值的折线图
     plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
+    #type(forecast_cumsum) <class 'pandas.core.series.Series'>
+    #forecast_cumsum -> idx:2028-01-01    val:123.079235 ...
+    #在开头添加数据点 连上实际的折线
+    forecast_cumsum = pd.concat([series[-1:], forecast_cumsum])
     plt.plot(forecast_cumsum)
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
@@ -179,4 +183,4 @@ def main(country):
     residual_analysis(best_model, series)
 
 if __name__ == "__main__":
-    main('China')
+    main('United States')
