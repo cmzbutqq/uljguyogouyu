@@ -10,15 +10,33 @@ def load(file_name, encoding="utf8"):
     return pd.read_csv(folder + file_name, encoding=encoding)
 
 
-# Name,Sex,Team,NOC,Year,City,Sport,Event,Medal
-athletes = load("summerOly_athletes.csv")
 # Year,Host
 hosts = load("summerOly_hosts.csv")
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
 medals = load("summerOly_medal_counts.csv")
+# Name,Sex,Team,NOC,Year,City,Sport,Event,Medal
+athletes = load("summerOly_athletes.csv")
 # Sport,Discipline,Code,Sports Governing Body,1896,1900,1904,...,2024
 programs = load("washed_summerOly_programs.csv", encoding="windows-1252")
 
+y = "Sport"
+df, name = (programs, "programs")
+print(f"unique {y} values of {name} are:")
+print(df[y].unique().shape)
+
+df, name = (athletes, "athletes")
+print(f"unique {y} values of {name} are:")
+print(df[y].unique().shape,df[y].unique())
+
+y = "Event"
+df, name = (athletes, "athletes")
+print(f"unique {y} values of {name} are:")
+print(df[y].unique().shape)
+
+y = "Discipline"
+df, name = (programs, "programs")
+print(f"unique {y} values of {name} are:")
+print(df[y].unique().shape)
 
 # dataframes = hosts, medals, programs
 # [print(df.head(), "\n", df.shape) for df in dataframes]
