@@ -2,6 +2,13 @@ import csv
 
 path = "2025_Problem_C_Data/summerOly_medal_counts.csv"
 
+"""
+main函数返回两个字典
+year_first_countries: 年份->该年第一次获奖的国家
+country_first_year: 国家->该国第一次获奖的年份
+ps: summerOly_medal_counts.csv里的国家都得过奖
+"""
+
 
 def main():
     country_first_year = {}
