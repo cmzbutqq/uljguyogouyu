@@ -28,7 +28,17 @@ df["Medal"] = df["Medal"].apply(lambda x: 1 if x in ("Bronze", "Silver", "Gold")
 grouped = df.groupby("NOC")
 # 初始化一个空的DataFrame来存储结果
 results = pd.DataFrame(
-    columns=["NOC", "Events", "Medals", "Golds", "LNM", "CV", "CONTIN", "Focus"]
+    columns=[
+        "NOC",
+        "Country",
+        "Events",
+        "Medals",
+        "Golds",
+        "LNM",
+        "CV",
+        "CONTIN",
+        "Focus",
+    ]
 )
 # 遍历每个国家
 for NOC, group in grouped:
@@ -64,6 +74,7 @@ for NOC, group in grouped:
         [
             {
                 "NOC": NOC,
+                "Country": group["Team"].unique()[0],
                 "Events": len(group),
                 "Medals": MEDALS,
                 "Golds": GOLDS,
