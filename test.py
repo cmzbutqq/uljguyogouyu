@@ -26,7 +26,7 @@ print(df[y].unique().shape)
 
 df, name = (athletes, "athletes")
 print(f"unique {y} values of {name} are:")
-print(df[y].unique().shape,df[y].unique())
+print(df[y].unique().shape, df[y].unique())
 
 y = "Event"
 df, name = (athletes, "athletes")

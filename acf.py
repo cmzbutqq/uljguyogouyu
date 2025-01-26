@@ -18,9 +18,9 @@ COUNTRIES = (
     "Kenya",
     "Jamaica",
 )
-YEARS=1992,1896
-Ys="Gold","Total"
-for start_year,y,country in product(YEARS,Ys,COUNTRIES):
+YEARS = 1992, 1896
+Ys = "Gold", "Total"
+for start_year, y, country in product(YEARS, Ys, COUNTRIES):
     country_data = medals[(medals["NOC"] == country) & (medals["Year"] >= start_year)]
     acf_values = acf(country_data[y].values)
     plt.figure()
