@@ -26,7 +26,7 @@ MEDAL_COUNTS = MEDAL_COUNTS[MEDAL_COUNTS["Year"] >= BEGIN_YEAR]
 ATHLETES = pd.read_csv("2025_Problem_C_Data/summerOly_athletes.csv")
 ATHLETES = ATHLETES[ATHLETES["Year"] >= BEGIN_YEAR]
 
-
+COUNTRIES = pd.read_csv("countries.csv")
 # 获取国家历年成绩
 def get_country_medals(NOC):
     data_real = MEDAL_COUNTS[MEDAL_COUNTS["NOC"] == NOC]
@@ -69,17 +69,19 @@ def get_athlete_data(Team, year):
 
     medals, _ = get_country_medals(Team)
     total_medals = medals[medals["Year"] == year]["Total"].sum()
+    
     return advantage_athletes, other_athletes, total_medals
 
 
 def make_csv():
     with open(f"country-year_analysis.csv", "w") as f:
-        f.writelines("Country,Year,Advantage_athletes,Other_athletes,Total_medals\n")
-        for country in MEDAL_COUNTS["NOC"].unique():
-            for year in MEDAL_COUNTS[MEDAL_COUNTS["NOC"] == country]["Year"].unique():
-                top_sports, other_sports, total_medals = get_athlete_data(country, year)
+        f.writelines("Country,Year,Advantage_athletes,Other_athletes,Total_medals,Focus\n")
+        for team in MEDAL_COUNTS["NOC"].unique():
+            for year in MEDAL_COUNTS[MEDAL_COUNTS["NOC"] == team]["Year"].unique():
+                top_sports, other_sports, total_medals = get_athlete_data(team, year)
+                focus=COUNTRIES[COUNTRIES["Country"] == team]["Focus"].mean()
                 f.writelines(
-                    f"{country},{year},{top_sports},{other_sports},{total_medals}\n"
+                    f"{team},{year},{top_sports},{other_sports},{total_medals},{focus}\n"
                 )
 
 
