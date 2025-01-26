@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 
 
-# 1. 生成模拟数据（假设历史数据）
+# 1. 生成模拟数据（修正概率计算）
 def generate_simulated_data(n_countries=200, n_olympics=5):
     """
     生成模拟数据，包含以下特征：
@@ -24,13 +24,19 @@ def generate_simulated_data(n_countries=200, n_olympics=5):
     data = []
     for olympic in range(n_olympics):
         for country in range(n_countries):
-            gdp = np.exp(np.random.normal(8, 1))  # 模拟GDP
-            population = np.exp(np.random.normal(14, 0.5))  # 模拟人口
-            athletes = int(max(1, np.random.poisson(population * 0.0001)))  # 运动员数量
-            participations = np.random.randint(1, 10)  # 往届参赛次数
-            is_host = 1 if np.random.rand() < 0.05 else 0  # 5%概率为主办国
-            # 生成标签：首次获奖概率与GDP、运动员数量、主办国相关
-            prob = 0.01 * (gdp / 1e4) + 0.02 * athletes + 0.3 * is_host
+            gdp = np.exp(np.random.normal(8, 1))  # 调整参数范围
+            population = np.exp(np.random.normal(12, 0.5))  # 降低人口基数
+            athletes = int(max(1, np.random.poisson(population * 0.0001)))
+            participations = np.random.randint(1, 10)
+            is_host = 1 if np.random.rand() < 0.05 else 0
+            # 使用逻辑回归的线性组合 + Sigmoid函数计算概率
+            logit = (
+                -4  # 截距项（控制基准概率）
+                + 0.5 * np.log(gdp) / 20  # GDP影响（标准化后）
+                + 0.3 * athletes / 50  # 运动员数量影响
+                + 1.5 * is_host  # 主办国优势
+            )
+            prob = 1 / (1 + np.exp(-logit))  # Sigmoid函数约束概率在[0,1]
             has_won = 1 if np.random.rand() < prob else 0
             data.append(
                 [country, gdp, population, athletes, participations, is_host, has_won]
@@ -50,26 +56,33 @@ def generate_simulated_data(n_countries=200, n_olympics=5):
     return df
 
 
-# 生成模拟历史数据（5届奥运会，200个国家）
+# 生成模拟历史数据
 historical_data = generate_simulated_data()
 print("模拟数据示例：\n", historical_data.head())
 
-# 2. 数据预处理
-# 移除已获奖国家（假设一旦获奖，后续不再作为正样本）
-historical_data = historical_data.groupby("country_id").filter(
+# 2. 数据预处理（增加空数据检查）
+# 移除已获奖国家
+historical_data_filtered = historical_data.groupby("country_id").filter(
     lambda x: x["has_won"].cumsum().eq(0).all()
 )
 
-# 特征与标签
-X = historical_data[["gdp", "population", "athletes", "participations", "is_host"]]
-y = historical_data["has_won"]
+if historical_data_filtered.empty:
+    raise ValueError("过滤后数据为空！请检查数据生成逻辑或调整参数。")
 
-# 3. 处理类别不平衡（调整类别权重）
+# 特征与标签
+X = historical_data_filtered[
+    ["gdp", "population", "athletes", "participations", "is_host"]
+]
+y = historical_data_filtered["has_won"]
+
+# 3. 处理类别不平衡
 model = make_pipeline(
     StandardScaler(), LogisticRegression(class_weight="balanced", max_iter=1000)
 )
 
-# 划分训练集与测试集
+# 划分训练集与测试集（确保最小样本数）
+if len(X) < 2:
+    raise ValueError("样本量不足以划分训练集和测试集。")
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
@@ -106,7 +119,7 @@ def predict_next_olympics(model, n_candidate_countries=50):
 expected_wins = predict_next_olympics(model)
 print(f"\n预测结果：下一届奥运会预计有 {expected_wins:.1f} 个国家首次获奖。")
 
-# 置信区间（假设泊松分布）
+# 置信区间（泊松分布）
 alpha = 0.95
 lower = np.percentile(np.random.poisson(expected_wins, 10000), (1 - alpha) * 100)
 upper = np.percentile(np.random.poisson(expected_wins, 10000), alpha * 100)
