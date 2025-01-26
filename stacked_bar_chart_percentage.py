@@ -97,8 +97,8 @@ plt.legend(title="Country", bbox_to_anchor=(1.05, 1), loc="upper left")
 # 添加百分比标签
 ax = plt.gca()
 for bar in ax.containers:
-    labels = [f"{h:.1f}" if h > threshold else "" for h in bar.datavalues]
+    labels = [f"{h:.1f}" if h > 3.0 else "" for h in bar.datavalues]
     ax.bar_label(bar, labels=labels, label_type="center", fontsize=8)
 
 plt.tight_layout()
-plt.show()
+plt.savefig(f"plots/bar/stacked_bar_chart_percentage_{BEGIN_YEAR}.png", dpi=300)
