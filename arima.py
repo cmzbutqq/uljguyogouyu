@@ -7,6 +7,8 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
 from datetime import datetime
+import matplotlib.pyplot as plt
+import style
 
 """
 用ARIMA模型预测国家奥运奖牌数
@@ -17,7 +19,6 @@ plots
 FREQ = "4YS-JAN"
 BEGIN_YEAR = 1992
 N_FORECAST = 1
-import matplotlib.pyplot as plt
 
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置中文字体
 plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
@@ -330,9 +331,9 @@ if __name__ == "__main__":
     log_print(f"{len(countries)=}")
     for i, NOC in enumerate(countries):
         log_print(f"\t{i}\tTRYING {NOC=}:")
-        main(NOC)
-        # try:
-        #     main(NOC)
-        # except Exception as e:
-        #     err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
+        # main(NOC)
+        try:
+            main(NOC)
+        except Exception as e:
+            err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
         plt.close("all")
