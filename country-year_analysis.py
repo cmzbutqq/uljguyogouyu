@@ -86,12 +86,12 @@ def get_athlete_data(Team, year):
         print(e)
         top_medals = 0
     # breakpoint()
-    if total_medals == 0 or len(records) < 3:
-        focus = 0
+    if total_medals == 0 or len(records) < 3 or sport_medals.sum() == 0:
+        focus = 0.0
     else:
         focus = top_medals / sport_medals.sum()
 
-    return advantage_athletes, other_athletes, total_medals,focus
+    return advantage_athletes, other_athletes, total_medals, focus
 
 
 def make_csv():
