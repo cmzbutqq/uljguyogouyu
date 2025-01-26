@@ -1,0 +1,741 @@
+Country,Year,top_sports,other_sports,total_medals
+Unified Team,1992,265,381,112
+United States,1992,306,422,108.0
+United States,1996,320,507,100.5
+United States,2000,300,448,93.0
+United States,2004,302,404,101.0
+United States,2008,298,446,112.0
+United States,2012,288,381,104.0
+United States,2016,294,405,121.0
+United States,2020,332,524,113.0
+United States,2024,341,513,126.0
+Germany,1992,250,397,82
+Germany,1996,227,391,65
+Germany,2000,181,370,56
+Germany,2004,199,377,49
+Germany,2008,173,374,41
+Germany,2012,178,316,44
+Germany,2016,190,338,42
+Germany,2020,217,380,37
+Germany,2024,210,437,33
+China,1992,164,214,54.0
+China,1996,175,243,50.0
+China,2000,155,237,58.0
+China,2004,186,304,63.0
+China,2008,196,512,77.5
+China,2012,174,289,92.0
+China,2016,177,306,70.0
+China,2020,186,388,89.0
+China,2024,218,369,91.0
+Cuba,1992,80,116,31
+Cuba,1996,92,86,25
+Cuba,2000,80,191,29
+Cuba,2004,76,101,27
+Cuba,2008,86,81,30
+Cuba,2012,68,50,15
+Cuba,2016,71,72,11
+Cuba,2020,42,40,15
+Cuba,2024,37,32,9
+Spain,1992,155,382,0
+Spain,1996,140,240,17
+Spain,2000,172,259,11
+Spain,2004,164,251,20
+Spain,2008,133,214,19
+Spain,2012,109,222,20
+Spain,2016,125,228,17
+Spain,2020,151,278,17
+Spain,2024,171,355,18
+South Korea,1992,110,196,29
+South Korea,1996,136,261,27
+South Korea,2000,108,231,28
+South Korea,2004,108,216,30
+South Korea,2008,103,214,32
+South Korea,2012,93,211,31
+South Korea,2016,75,180,21
+South Korea,2020,98,240,20
+South Korea,2024,0,0,32
+Hungary,1992,147,204,30
+Hungary,1996,131,184,21
+Hungary,2000,100,138,17
+Hungary,2004,104,150,17
+Hungary,2008,94,122,10
+Hungary,2012,105,96,18
+Hungary,2016,108,96,15
+Hungary,2020,114,123,20
+Hungary,2024,103,152,19
+France,1992,181,295,29
+France,1996,198,247,37
+France,2000,169,297,38
+France,2004,188,265,33
+France,2008,191,250,43
+France,2012,149,273,35
+France,2016,150,354,42
+France,2020,149,389,33
+France,2024,225,576,33
+Australia,1992,158,232,27.0
+Australia,1996,205,337,41.0
+Australia,2000,239,523,45.5
+Australia,2004,176,409,50.0
+Australia,2008,184,375,46.0
+Australia,2012,191,315,35.0
+Australia,2016,191,319,29.0
+Australia,2020,201,437,46.0
+Australia,2024,233,416,53.0
+Canada,1992,184,257,18
+Canada,1996,134,262,22
+Canada,2000,156,254,14
+Canada,2004,152,231,12
+Canada,2008,148,298,20
+Canada,2012,136,218,18
+Canada,2016,166,231,22
+Canada,2020,163,346,24
+Canada,2024,217,321,27
+Italy,1992,156,275,19
+Italy,1996,152,308,35
+Italy,2000,138,315,34
+Italy,2004,146,324,32
+Italy,2008,174,281,27
+Italy,2012,138,236,28
+Italy,2016,127,268,28
+Italy,2020,202,322,40
+Italy,2024,247,363,40
+Great Britain,1992,228,272,20.0
+Great Britain,1996,182,197,15.0
+Great Britain,2000,187,216,28.0
+Great Britain,2004,161,191,30.0
+Great Britain,2008,188,225,51.0
+Great Britain,2012,217,455,59.0
+Great Britain,2016,187,283,67.0
+Great Britain,2020,218,330,64.0
+Great Britain,2024,240,293,65.0
+Romania,1992,161,141,18
+Romania,1996,158,126,20
+Romania,2000,137,115,26
+Romania,2004,119,74,19
+Romania,2008,100,72,9
+Romania,2012,81,74,7
+Romania,2016,56,61,4
+Romania,2020,67,52,4
+Romania,2024,93,51,9
+Czechoslovakia,1992,89,174,7
+North Korea,1992,78,37,9.0
+North Korea,1996,19,13,5.0
+North Korea,2000,30,17,4.0
+North Korea,2004,50,21,5.0
+North Korea,2008,28,38,6.0
+North Korea,2012,36,21,6.0
+North Korea,2016,19,19,7.0
+North Korea,2024,0,0,6.0
+Japan,1992,160,214,22.0
+Japan,1996,185,247,14.0
+Japan,2000,139,208,18.0
+Japan,2004,142,260,37.0
+Japan,2008,178,268,25.0
+Japan,2012,157,238,38.0
+Japan,2016,175,261,41.0
+Japan,2020,195,592,43.0
+Japan,2024,184,414,45.0
+Bulgaria,1992,127,105,16
+Bulgaria,1996,96,85,15
+Bulgaria,2000,78,72,13
+Bulgaria,2004,46,73,12
+Bulgaria,2008,42,45,5
+Bulgaria,2012,30,45,3
+Bulgaria,2016,30,28,3
+Bulgaria,2020,24,32,6
+Bulgaria,2024,25,36,7
+Poland,1992,90,169,19
+Poland,1996,70,133,17
+Poland,2000,87,149,14
+Poland,2004,100,124,10
+Poland,2008,121,191,11
+Poland,2012,111,141,11
+Poland,2016,136,149,11
+Poland,2020,130,152,14
+Poland,2024,147,165,10
+Netherlands,1992,82,175,15
+Netherlands,1996,113,173,19
+Netherlands,2000,118,167,25
+Netherlands,2004,100,164,22
+Netherlands,2008,108,168,16
+Netherlands,2012,97,121,20
+Netherlands,2016,121,200,19
+Netherlands,2020,137,254,36
+Netherlands,2024,179,270,34
+Kenya,1992,51,4,8
+Kenya,1996,52,2,8
+Kenya,2000,55,4,7
+Kenya,2004,45,1,7
+Kenya,2008,44,3,16
+Kenya,2012,50,1,13
+Kenya,2016,75,5,13
+Kenya,2020,80,9,10
+Kenya,2024,73,4,11
+Norway,1992,46,68,7
+Norway,1996,44,72,7
+Norway,2000,44,67,10
+Norway,2004,28,24,6
+Norway,2008,43,55,9
+Norway,2012,36,33,4
+Norway,2016,39,38,4
+Norway,2020,59,53,8
+Norway,2024,74,54,8
+Turkey,1992,37,17,6
+Turkey,1996,30,31,6
+Turkey,2000,34,33,5
+Turkey,2004,41,33,10
+Turkey,2008,42,29,5
+Turkey,2012,58,61,3
+Turkey,2016,59,60,8
+Turkey,2020,69,70,13
+Turkey,2024,0,0,8
+Indonesia,1992,19,24,5
+Indonesia,1996,18,15,4
+Indonesia,2000,23,19,6
+Indonesia,2004,15,16,4
+Indonesia,2008,12,6,6
+Indonesia,2012,17,5,3
+Indonesia,2016,20,7,3
+Indonesia,2020,25,10,5
+Indonesia,2024,22,14,3
+Brazil,1992,79,154,3.0
+Brazil,1996,107,136,15.0
+Brazil,2000,82,146,12.0
+Brazil,2004,124,186,10.0
+Brazil,2008,134,196,17.0
+Brazil,2012,105,189,17.0
+Brazil,2016,180,391,19.0
+Brazil,2020,157,259,21.0
+Brazil,2024,138,263,20.0
+Greece,1992,35,41,2.0
+Greece,1996,99,81,8.0
+Greece,2000,89,86,13.0
+Greece,2004,141,354,8.0
+Greece,2008,89,83,3.0
+Greece,2012,58,57,2.0
+Greece,2016,62,42,6.0
+Greece,2020,57,43,4.0
+Greece,2024,72,54,8.0
+Sweden,1992,78,166,12
+Sweden,1996,80,145,8
+Sweden,2000,68,126,12
+Sweden,2004,66,89,7
+Sweden,2008,79,83,5
+Sweden,2012,77,91,8
+Sweden,2016,92,94,11
+Sweden,2020,80,93,9
+Sweden,2024,90,83,11
+New Zealand,1992,80,95,10
+New Zealand,1996,80,49,6
+New Zealand,2000,65,112,4
+New Zealand,2004,90,94,5
+New Zealand,2008,88,113,9
+New Zealand,2012,94,110,13
+New Zealand,2016,99,133,18
+New Zealand,2020,112,167,20
+New Zealand,2024,91,162,20
+Finland,1992,83,47,5
+Finland,1996,67,38,4
+Finland,2000,54,34,4
+Finland,2004,50,17,2
+Finland,2008,42,28,4
+Finland,2012,42,27,3
+Finland,2016,39,28,1
+Finland,2020,35,14,2
+Denmark,1992,61,75,6
+Denmark,1996,52,81,6
+Denmark,2000,45,67,6
+Denmark,2004,46,57,8
+Denmark,2008,56,45,7
+Denmark,2012,70,75,9
+Denmark,2016,59,84,15
+Denmark,2020,51,87,11
+Denmark,2024,65,96,9
+Morocco,1992,37,8,3
+Morocco,1996,28,10,2
+Morocco,2000,46,9,5
+Morocco,2004,47,10,3
+Morocco,2008,41,8,2
+Morocco,2012,46,21,1
+Morocco,2016,33,19,1
+Morocco,2020,30,21,1
+Morocco,2024,35,28,2
+Ireland,1992,45,32,2.0
+Ireland,1996,50,49,4.0
+Ireland,2000,54,22,1.0
+Ireland,2008,37,26,3.0
+Ireland,2012,45,31,6.0
+Ireland,2016,44,49,2.0
+Ireland,2020,63,87,4.0
+Ireland,2024,86,99,7.0
+Ethiopia,1992,24,0,3
+Ethiopia,1996,19,0,3
+Ethiopia,2000,27,0,8
+Ethiopia,2004,27,0,7
+Ethiopia,2008,29,0,7
+Ethiopia,2012,34,0,8
+Ethiopia,2016,38,0,8
+Ethiopia,2020,37,1,4
+Ethiopia,2024,35,0,4
+Algeria,1992,27,9,2.0
+Algeria,1996,30,17,3.0
+Algeria,2000,37,14,5.0
+Algeria,2008,32,25,2.0
+Algeria,2012,26,13,1.0
+Algeria,2016,44,30,2.0
+Algeria,2024,24,31,3.0
+Estonia,1992,23,23,2.0
+Estonia,2000,20,21,3.0
+Estonia,2004,30,15,3.0
+Estonia,2008,33,20,2.0
+Estonia,2012,22,14,2.0
+Estonia,2016,31,18,1.0
+Estonia,2020,21,21,2.0
+Lithuania,1992,28,26,2
+Lithuania,1996,53,28,1
+Lithuania,2000,43,34,5
+Lithuania,2004,41,29,3
+Lithuania,2008,40,38,5
+Lithuania,2012,40,32,5
+Lithuania,2016,40,40,4
+Lithuania,2020,32,27,1
+Lithuania,2024,33,30,4
+Switzerland,1992,78,93,1
+Switzerland,1996,71,101,7
+Switzerland,2000,52,86,9
+Switzerland,2004,56,78,5
+Switzerland,2008,45,67,7
+Switzerland,2012,43,79,4
+Switzerland,2016,68,80,7
+Switzerland,2020,93,103,13
+Switzerland,2024,116,102,8
+Jamaica,1992,48,3,4
+Jamaica,1996,65,4,6
+Jamaica,2000,64,1,9
+Jamaica,2004,61,1,5
+Jamaica,2008,65,1,11
+Jamaica,2012,61,1,13
+Jamaica,2016,76,1,11
+Jamaica,2020,84,3,9
+Jamaica,2024,80,1,6
+Nigeria,1992,49,19,4.0
+Nigeria,1996,69,15,6.0
+Nigeria,2000,80,16,3.0
+Nigeria,2004,50,21,2.0
+Nigeria,2008,74,15,5.0
+Nigeria,2016,57,20,1.0
+Nigeria,2020,52,16,2.0
+Latvia,1992,19,21,3.0
+Latvia,1996,30,25,1.0
+Latvia,2000,39,21,3.0
+Latvia,2004,34,11,4.0
+Latvia,2008,34,19,3.0
+Latvia,2012,33,13,2.0
+Latvia,2020,16,22,2.0
+Austria,1992,47,80,2.0
+Austria,1996,37,51,3.0
+Austria,2000,43,71,3.0
+Austria,2004,39,49,7.0
+Austria,2008,47,42,3.0
+Austria,2016,27,54,1.0
+Austria,2020,31,72,7.0
+Austria,2024,40,81,5.0
+Namibia,1992,10,0,2.0
+Namibia,1996,9,1,2.0
+Namibia,2020,8,3,1.0
+South Africa,1992,70,71,2
+South Africa,1996,62,49,5
+South Africa,2000,91,70,5
+South Africa,2004,83,45,6
+South Africa,2008,112,67,1
+South Africa,2012,93,52,6
+South Africa,2016,99,56,10
+South Africa,2020,102,109,3
+South Africa,2024,99,62,6
+Belgium,1992,48,55,3
+Belgium,1996,35,46,6
+Belgium,2000,48,46,5
+Belgium,2004,41,29,3
+Belgium,2008,56,56,2
+Belgium,2012,70,72,3
+Belgium,2016,68,70,6
+Belgium,2020,85,100,7
+Belgium,2024,121,119,10
+Croatia,1992,26,20,3
+Croatia,1996,54,63,2
+Croatia,2000,56,52,2
+Croatia,2004,52,48,5
+Croatia,2008,50,75,5
+Croatia,2012,54,64,6
+Croatia,2016,37,56,10
+Croatia,2020,30,44,8
+Croatia,2024,36,49,7
+Independent Olympic Participants,1992,0,0,3
+Iran,1992,35,9,3
+Iran,1996,15,3,3
+Iran,2000,20,14,4
+Iran,2004,25,12,6
+Iran,2008,30,25,2
+Iran,2012,29,28,13
+Iran,2016,34,33,8
+Iran,2020,37,39,7
+Iran,2024,0,0,12
+Israel,1992,22,22,2.0
+Israel,1996,23,15,1.0
+Israel,2000,41,17,1.0
+Israel,2004,18,28,2.0
+Israel,2008,28,32,1.0
+Israel,2016,32,27,2.0
+Israel,2020,76,52,4.0
+Israel,2024,84,54,7.0
+Chinese Taipei,1992,29,9,1
+Chinese Taipei,1996,56,47,1
+Chinese Taipei,2000,34,37,5
+Chinese Taipei,2004,57,47,5
+Chinese Taipei,2008,50,42,4
+Chinese Taipei,2012,27,28,2
+Chinese Taipei,2016,28,39,3
+Chinese Taipei,2020,60,57,12
+Chinese Taipei,2024,34,44,7
+Mexico,1992,56,84,1
+Mexico,1996,39,72,1
+Mexico,2000,48,50,6
+Mexico,2004,72,65,4
+Mexico,2008,44,59,4
+Mexico,2012,48,71,8
+Mexico,2016,52,87,5
+Mexico,2020,82,114,4
+Mexico,2024,52,103,5
+Peru,1992,13,8,1.0
+Peru,2024,20,12,1.0
+Mongolia,1992,24,14,2.0
+Mongolia,1996,11,7,1.0
+Mongolia,2004,16,5,1.0
+Mongolia,2008,22,9,4.0
+Mongolia,2012,22,10,5.0
+Mongolia,2016,29,17,2.0
+Mongolia,2020,41,20,4.0
+Mongolia,2024,37,11,1.0
+Slovenia,1992,22,25,2
+Slovenia,1996,26,21,2
+Slovenia,2000,47,43,2
+Slovenia,2004,62,36,4
+Slovenia,2008,42,31,5
+Slovenia,2012,38,40,4
+Slovenia,2016,41,29,4
+Slovenia,2020,27,37,5
+Slovenia,2024,55,62,3
+Argentina,1992,43,68,1
+Argentina,1996,76,145,3
+Argentina,2000,65,96,4
+Argentina,2004,66,109,6
+Argentina,2008,65,76,6
+Argentina,2012,58,90,4
+Argentina,2016,87,141,4
+Argentina,2020,82,126,3
+Argentina,2024,67,87,3
+Bahamas,1992,16,2,1
+Bahamas,1996,35,1,1
+Bahamas,2000,39,0,3
+Bahamas,2004,28,0,2
+Bahamas,2008,32,1,2
+Bahamas,2012,29,0,1
+Bahamas,2016,38,0,2
+Bahamas,2020,22,0,2
+Colombia,1992,36,25,1.0
+Colombia,2000,31,23,1.0
+Colombia,2004,33,38,2.0
+Colombia,2008,42,48,3.0
+Colombia,2012,69,51,9.0
+Colombia,2016,83,74,8.0
+Colombia,2020,39,38,5.0
+Colombia,2024,47,58,4.0
+Ghana,1992,37,4,1.0
+Ghana,2020,14,2,1.0
+Malaysia,1992,22,4,1.0
+Malaysia,1996,32,7,2.0
+Malaysia,2008,21,17,1.0
+Malaysia,2012,26,12,2.0
+Malaysia,2016,24,18,5.0
+Malaysia,2020,26,21,2.0
+Malaysia,2024,20,12,2.0
+Pakistan,1992,25,3,1.0
+Pakistan,2024,10,0,1.0
+Philippines,1992,27,11,1.0
+Philippines,1996,14,4,1.0
+Philippines,2016,7,6,1.0
+Philippines,2020,15,12,4.0
+Philippines,2024,34,10,4.0
+Puerto Rico,1992,60,41,1.0
+Puerto Rico,1996,44,47,1.0
+Puerto Rico,2012,20,8,2.0
+Puerto Rico,2016,26,15,1.0
+Puerto Rico,2020,20,19,1.0
+Puerto Rico,2024,36,17,2.0
+Qatar,1992,30,0,1.0
+Qatar,2000,17,2,1.0
+Qatar,2012,13,1,2.0
+Qatar,2016,31,11,1.0
+Qatar,2020,13,4,3.0
+Qatar,2024,11,2,1.0
+Suriname,1992,9,0,1
+Thailand,1992,49,15,1
+Thailand,1996,37,17,2
+Thailand,2000,38,30,3
+Thailand,2004,22,25,8
+Thailand,2008,29,24,6
+Thailand,2012,21,22,4
+Thailand,2016,25,33,6
+Thailand,2020,21,27,2
+Thailand,2024,22,36,6
+Russia,1996,244,308,63
+Russia,2000,256,346,89
+Russia,2004,249,332,90
+Russia,2008,252,340,60
+Russia,2012,215,326,65
+Russia,2016,157,241,56
+Ukraine,1996,166,185,23
+Ukraine,2000,190,178,23
+Ukraine,2004,175,182,22
+Ukraine,2008,148,175,22
+Ukraine,2012,137,167,19
+Ukraine,2016,128,140,11
+Ukraine,2020,103,122,19
+Ukraine,2024,94,118,12
+Czech Republic,1996,85,80,11
+Czech Republic,2000,64,90,8
+Czech Republic,2004,75,88,9
+Czech Republic,2008,63,87,7
+Czech Republic,2012,61,86,11
+Czech Republic,2016,60,71,10
+Czech Republic,2020,58,93,11
+Czech Republic,2024,0,0,5
+Kazakhstan,1996,54,88,11
+Kazakhstan,2000,66,92,7
+Kazakhstan,2004,57,73,8
+Kazakhstan,2008,52,94,9
+Kazakhstan,2012,51,81,11
+Kazakhstan,2016,61,62,17
+Kazakhstan,2020,34,82,8
+Kazakhstan,2024,48,75,7
+Belarus,1996,147,112,15
+Belarus,2000,124,107,17
+Belarus,2004,78,114,13
+Belarus,2008,105,128,14
+Belarus,2012,79,106,10
+Belarus,2016,56,86,9
+Belarus,2020,69,68,7
+FR Yugoslavia,1996,0,0,4
+FR Yugoslavia,2000,0,0,3
+Slovakia,1996,47,47,3
+Slovakia,2000,61,71,5
+Slovakia,2004,43,37,6
+Slovakia,2008,41,26,6
+Slovakia,2012,38,27,4
+Slovakia,2016,38,25,4
+Slovakia,2020,27,29,4
+Slovakia,2024,25,13,1
+Armenia,1996,25,13,2.0
+Armenia,2000,15,11,1.0
+Armenia,2008,19,7,5.0
+Armenia,2012,19,12,2.0
+Armenia,2016,21,13,4.0
+Armenia,2020,12,7,4.0
+Armenia,2024,12,5,4.0
+Portugal,1996,75,56,2
+Portugal,2000,38,26,2
+Portugal,2004,57,36,3
+Portugal,2008,50,34,2
+Portugal,2012,48,50,1
+Portugal,2016,53,53,1
+Portugal,2020,46,67,4
+Portugal,2024,40,55,4
+Burundi,1996,7,0,1.0
+Burundi,2016,10,0,1.0
+Costa Rica,1996,8,5,1
+Costa Rica,2000,7,2,2
+Ecuador,1996,21,7,1.0
+Ecuador,2008,18,8,1.0
+Ecuador,2020,26,26,3.0
+Ecuador,2024,28,19,5.0
+Hong Kong,1996,22,10,1.0
+Hong Kong,2004,21,13,1.0
+Hong Kong,2012,25,30,1.0
+Hong Kong,2020,0,0,6.0
+Hong Kong,2024,0,0,4.0
+Syria,1996,6,2,1.0
+Syria,2004,4,2,1.0
+Syria,2020,3,3,1.0
+Moldova,1996,25,25,2.0
+Moldova,2000,26,9,2.0
+Moldova,2008,22,8,1.0
+Moldova,2020,15,11,1.0
+Moldova,2024,0,0,4.0
+Uzbekistan,1996,50,45,2
+Uzbekistan,2000,50,35,4
+Uzbekistan,2004,38,41,5
+Uzbekistan,2008,31,38,4
+Uzbekistan,2012,27,29,3
+Uzbekistan,2016,37,43,13
+Uzbekistan,2020,38,47,5
+Uzbekistan,2024,63,56,13
+Azerbaijan,1996,15,9,1
+Azerbaijan,2000,18,14,3
+Azerbaijan,2004,21,16,5
+Azerbaijan,2008,30,14,6
+Azerbaijan,2012,29,30,9
+Azerbaijan,2016,37,32,18
+Azerbaijan,2020,28,27,7
+Azerbaijan,2024,27,22,7
+Tonga,1996,5,0,1
+Zambia,1996,8,0,1.0
+Zambia,2024,29,3,1.0
+Georgia,1996,21,21,2
+Georgia,2000,26,21,6
+Georgia,2004,26,13,4
+Georgia,2008,21,17,7
+Georgia,2012,24,12,6
+Georgia,2016,25,20,7
+Georgia,2020,21,15,8
+Georgia,2024,29,9,7
+Trinidad and Tobago,1996,13,3,2
+Trinidad and Tobago,2000,29,0,2
+Trinidad and Tobago,2004,25,1,1
+Trinidad and Tobago,2008,34,1,2
+Trinidad and Tobago,2012,34,4,4
+Trinidad and Tobago,2016,38,5,1
+India,1996,28,26,1
+India,2000,46,24,1
+India,2004,45,36,1
+India,2008,37,30,3
+India,2012,45,46,6
+India,2016,82,48,2
+India,2020,89,62,7
+India,2024,80,58,6
+Mozambique,1996,3,0,1
+Mozambique,2000,4,0,1
+Tunisia,1996,35,17,1.0
+Tunisia,2008,16,13,1.0
+Tunisia,2012,39,48,3.0
+Tunisia,2016,27,38,3.0
+Tunisia,2020,33,40,2.0
+Tunisia,2024,11,20,3.0
+Uganda,1996,11,1,1.0
+Uganda,2012,15,1,1.0
+Uganda,2020,27,1,4.0
+Uganda,2024,26,1,2.0
+Cameroon,2000,37,2,1
+Cameroon,2004,16,3,1
+Cameroon,2008,25,7,1
+Cameroon,2012,24,8,1
+Saudi Arabia,2000,21,2,2.0
+Saudi Arabia,2012,21,2,1.0
+Saudi Arabia,2020,26,7,1.0
+Sri Lanka,2000,23,1,1
+Uruguay,2000,12,5,1
+Vietnam,2000,6,1,1.0
+Vietnam,2008,10,8,1.0
+Vietnam,2012,12,12,1.0
+Vietnam,2016,12,16,2.0
+Barbados,2000,25,3,1
+Chile,2000,33,25,1.0
+Chile,2004,16,13,3.0
+Chile,2008,15,14,1.0
+Chile,2024,18,34,2.0
+Iceland,2000,27,2,1.0
+Iceland,2008,29,2,1.0
+Kuwait,2000,26,4,1.0
+Kuwait,2012,11,1,1.0
+Kuwait,2020,8,2,1.0
+Kyrgyzstan,2000,51,20,1.0
+Kyrgyzstan,2008,13,9,3.0
+Kyrgyzstan,2020,13,4,3.0
+Kyrgyzstan,2024,15,2,6.0
+Macedonia,2000,12,3,1
+Egypt,2004,46,58,5
+Egypt,2008,42,74,2
+Egypt,2012,46,86,4
+Egypt,2016,41,96,3
+Egypt,2020,64,131,6
+Egypt,2024,73,134,3
+Zimbabwe,2004,13,1,3
+Zimbabwe,2008,13,3,4
+Dominican Republic,2004,22,11,1
+Dominican Republic,2008,19,8,2
+Dominican Republic,2012,26,10,2
+Dominican Republic,2016,20,10,1
+Dominican Republic,2020,45,24,5
+Dominican Republic,2024,43,21,3
+United Arab Emirates,2004,5,0,1.0
+United Arab Emirates,2016,8,4,1.0
+Serbia and Montenegro,2004,41,55,2
+Paraguay,2004,21,1,1
+Venezuela,2004,23,30,2
+Venezuela,2008,55,71,1
+Venezuela,2012,47,38,1
+Venezuela,2016,40,65,3
+Venezuela,2020,22,25,4
+Eritrea,2004,5,0,1
+Panama,2008,5,0,1.0
+Panama,2024,10,3,1.0
+Serbia,2008,51,46,3
+Serbia,2012,54,76,4
+Serbia,2016,60,67,8
+Serbia,2020,44,66,9
+Serbia,2024,63,72,5
+Tajikistan,2008,8,8,2.0
+Tajikistan,2012,10,6,1.0
+Tajikistan,2016,6,1,1.0
+Tajikistan,2024,11,3,3.0
+Samoa,2008,5,2,1
+Singapore,2008,27,9,1.0
+Singapore,2012,23,13,2.0
+Singapore,2016,23,9,1.0
+Singapore,2024,19,13,1.0
+Sudan,2008,9,0,1
+Afghanistan,2008,4,0,1
+Afghanistan,2012,5,1,1
+Mauritius,2008,7,4,1
+Togo,2008,3,1,1
+Bahrain,2012,14,0,1
+Bahrain,2016,32,1,2
+Bahrain,2020,31,2,1
+Bahrain,2024,13,2,4
+Grenada,2012,8,0,1
+Grenada,2016,6,0,1
+Grenada,2020,6,0,1
+Grenada,2024,6,0,2
+Botswana,2012,4,0,1.0
+Botswana,2020,15,1,1.0
+Botswana,2024,19,0,2.0
+Cyprus,2012,9,4,1.0
+Cyprus,2024,16,7,1.0
+Gabon,2012,19,2,1
+Guatemala,2012,14,10,1.0
+Guatemala,2024,11,5,2.0
+Montenegro,2012,29,5,1
+Independent Olympic Athletes,2016,0,0,2
+Ivory Coast,2016,0,0,2
+Ivory Coast,2020,29,3,1
+Ivory Coast,2024,0,0,1
+Fiji,2016,44,9,1
+Fiji,2020,29,3,2
+Fiji,2024,31,5,1
+Jordan,2016,5,3,1
+Jordan,2020,10,5,2
+Jordan,2024,9,4,1
+Kosovo,2016,6,2,1
+Kosovo,2020,8,3,2
+Kosovo,2024,8,1,2
+Niger,2016,5,1,1
+ROC,2020,0,0,71
+Bermuda,2020,2,0,1
+San Marino,2020,7,1,3
+North Macedonia,2020,4,4,1
+Turkmenistan,2020,9,1,1
+Burkina Faso,2020,6,2,1
+Saint Lucia,2024,5,0,2
+Dominica,2024,4,0,1
+Albania,2024,7,2,2
+Cabo Verde,2024,5,2,1
+Refugee Olympic Team,2024,0,0,1
