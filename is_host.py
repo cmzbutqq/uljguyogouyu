@@ -2,9 +2,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-#读取csv
-path="2025_Problem_C_Data/summerOly_medal_counts.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
-MEDAL_COUNTS = pd.read_csv(path)
-MEDAL_COUNTS=MEDAL_COUNTS[MEDAL_COUNTS['Year']>=BEGIN_YEAR]
+medal_counts = pd.read_csv("2025_Problem_C_Data/summerOly_medal_counts.csv")
+HOSTS= pd.read_csv("hosts.csv",index_col='Year')
+
+def is_host(year,country):
+    if country in HOSTS.loc[year].values:
+        print(f"{country} hosted the Olympics in {year}")
+        return True
+    return False
+
+medal_counts['Host'] = medal_counts.apply(lambda row: is_host(row['Year'],row['NOC']),axis=1)
+print(medal_counts)
+medal_counts.to_csv("medal_counts_with_host.csv")
