@@ -97,34 +97,34 @@ def difference_until_stationary(series, max_diff=3):
 
 
 # 绘制自相关和偏自相关图
-def plot_acf_pacf(series):
+def plot_acf_pacf(series,country):
     fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
     plot_acf(series, ax=plt.gca())
-    plt.title("时间序列自相关图（ACF），用于分析滞后期之间的相关性")
+    plt.title(f"ACF of {country}")
 
     plt.subplot(122)
     plot_pacf(series, ax=plt.gca())
-    plt.title("时间序列偏自相关图（PACF），用于分析去除其他滞后期影响后的相关性")
+    plt.title(f"PACF of {country}")
 
     return fig
 
 
 # 事后检验：残差分析
-def residual_analysis(model, series):
+def residual_analysis(model, series,country):
     residuals = model.resid
     resid_fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
     plot_acf(residuals, ax=plt.gca())
-    plt.title("模型残差的自相关图，检验残差的相关性结构")
+    plt.title(f"ACF of {country} residual")
 
     plt.subplot(122)
     plot_pacf(residuals, ax=plt.gca())
-    plt.title("模型残差的偏自相关图，检验残差的相关性结构")
+    plt.title(f"PACF of {country} residual")
 
     # QQ 图
     qq_fig = qqplot(residuals, line="s")
-    plt.title("残差正态性检验：QQ图，检查模型残差是否服从正态分布")
+    plt.title(f"qqplot of {country} residual")
 
     # 正态性检验
     _, p_value = shapiro(residuals)
@@ -283,7 +283,7 @@ def main(country):
         diff_count = 0
 
     # 绘制自相关和偏自相关图，帮助选择 ARIMA 模型参数
-    fig1 = plot_acf_pacf(diff_series)
+    fig1 = plot_acf_pacf(diff_series,country)
 
     # 自动选择 p, q 值
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
@@ -304,7 +304,7 @@ def main(country):
     )
 
     # 事后检验：残差分析
-    fig3, fig4 = residual_analysis(best_model, series)
+    fig3, fig4 = residual_analysis(best_model, series,country)
 
     fig1.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_acf-pacf.png")
     fig2.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_forecast.png")
