@@ -1,18 +1,27 @@
 import pandas as pd
 import numpy as np
+from statsmodels.tsa.arima.model import ARIMA
 import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.graphics.gofplots import qqplot
+from scipy.stats import shapiro
+from datetime import datetime
 FREQ='4YS-JAN'
 BEGIN_YEAR = 1992
 N_FORECAST=1
 import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
+plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
 # SAVE_FOLDER = f"plots/arima/{BEGIN_YEAR}/"
 SAVE_FOLDER = f"plots/arima/"
 #读取csv
 path="medal_counts_with_host.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
 MEDAL_COUNTS = pd.read_csv(path)
-MEDAL_COUNTS=MEDAL_COUNTS[MEDAL_COUNTS['Year']>=BEGIN_YEAR]
+MEDAL_COUNTS=MEDAL_COUNTS[MEDAL_COUNTS['Year']>=BEGIN_YEAR] 
 
+#选取指定国家
 def get_country_data(NOC):
     data_host = MEDAL_COUNTS[MEDAL_COUNTS['NOC']==NOC]
     #年份不能重复
@@ -35,30 +44,3 @@ def get_country_data(NOC):
     # 4年一度
     data_host.index.freq = FREQ
     return data,data_host
-
-#选取指定国家
-def get_country_host_buff(NOC):
-    data,host = get_country_data(NOC)
-    data = data[host['Host']==True]
-    host = host[host['Host']==True]
-    data = data['Total'].sum()
-    host = host['Total'].sum()
-    return host,data
-
-if __name__ == '__main__':
-    countries=MEDAL_COUNTS['NOC'].unique()
-    A,B = [],[]
-    for c in countries:
-        buffed , unbuffed = get_country_host_buff(c)
-        if unbuffed==0 and buffed==0:
-            continue
-        A.append(buffed)
-        B.append(unbuffed)
-        
-    # plt.plot(A,'o')
-    # plt.plot(B,'o')
-    # plt.plot(np.array(A)/np.array(B),'o')
-    # plt.show()
-    
-    H=np.array(A).sum()/np.array(B).sum()
-    print(f'{H=}')# H=np.float64(1.304798962386511)
