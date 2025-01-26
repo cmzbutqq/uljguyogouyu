@@ -20,7 +20,8 @@ df = data[data["Country"] == country]
 # ====================
 # 2. 数据预处理
 # ====================
-X = df[["Advantage_athletes", "Other_athletes"]]
+X = df[["Advantage_athletes", "Other_athletes", "Focus"]]
+print(X["Focus"])
 y = df["Total_medals"]
 
 # ====================
@@ -49,39 +50,39 @@ print(equation)
 # ====================
 # 6. 可视化分析
 # ====================
-# 3D散点图与回归平面
-fig = plt.figure(figsize=(12, 8))
-ax = fig.add_subplot(111, projection="3d")
+# # 3D散点图与回归平面
+# fig = plt.figure(figsize=(12, 8))
+# ax = fig.add_subplot(111, projection="3d")
 
-# 绘制实际数据点
-ax.scatter(X.iloc[:, 0], X.iloc[:, 1], y, c="r", marker="o", s=50, label="实际值")
+# # 绘制实际数据点
+# ax.scatter(X.iloc[:, 0], X.iloc[:, 1], y, c="r", marker="o", s=50, label="实际值")
 
-# 生成预测平面
-x1_range = np.linspace(X.iloc[:, 0].min(), X.iloc[:, 0].max(), 10)
-x2_range = np.linspace(X.iloc[:, 1].min(), X.iloc[:, 1].max(), 10)
-x1, x2 = np.meshgrid(x1_range, x2_range)
-y_plane = model.predict(np.c_[x1.ravel(), x2.ravel()]).reshape(x1.shape)
+# # 生成预测平面
+# x1_range = np.linspace(X.iloc[:, 0].min(), X.iloc[:, 0].max(), 10)
+# x2_range = np.linspace(X.iloc[:, 1].min(), X.iloc[:, 1].max(), 10)
+# x1, x2 = np.meshgrid(x1_range, x2_range)
+# y_plane = model.predict(np.c_[x1.ravel(), x2.ravel()]).reshape(x1.shape)
 
-# 绘制回归平面
-surf = ax.plot_surface(x1, x2, y_plane, alpha=0.6, cmap="viridis")
-fig.colorbar(surf, shrink=0.5, aspect=5)
+# # 绘制回归平面
+# surf = ax.plot_surface(x1, x2, y_plane, alpha=0.6, cmap="viridis")
+# fig.colorbar(surf, shrink=0.5, aspect=5)
 
-ax.set_xlabel("优势项目运动员")
-ax.set_ylabel("其他项目运动员")
-ax.set_zlabel("总奖牌数")
-plt.title("二元线性回归平面")
-plt.legend()
-plt.show()
+# ax.set_xlabel("优势项目运动员")
+# ax.set_ylabel("其他项目运动员")
+# ax.set_zlabel("总奖牌数")
+# plt.title("二元线性回归平面")
+# plt.legend()
+# plt.show()
 
-# 残差分析图
-plt.figure(figsize=(8, 4))
+# # 残差分析图
+# plt.figure(figsize=(8, 4))
 residuals = y - y_pred
-plt.scatter(y_pred, residuals, c="blue")
-plt.axhline(y=0, color="red", linestyle="--")
-plt.xlabel("预测值")
-plt.ylabel("残差")
-plt.title("残差分布图")
-plt.show()
+# plt.scatter(y_pred, residuals, c="blue")
+# plt.axhline(y=0, color="red", linestyle="--")
+# plt.xlabel("预测值")
+# plt.ylabel("残差")
+# plt.title("残差分布图")
+# plt.show()
 
 # ====================
 # 7. 统计诊断
@@ -98,7 +99,7 @@ print(f"残差正态性检验p值: {p_value:.3f}")
 # ====================
 # 8. 新数据预测
 # ====================
-new_data = [[48, 92]]  # 2024年示例数据
+new_data = [[48, 92, 0.5]]  # 2024年示例数据
 prediction = model.predict(new_data)
 print(f"\n=== 2024年预测 ===")
 print(f"优势运动员: {new_data[0][0]}人")

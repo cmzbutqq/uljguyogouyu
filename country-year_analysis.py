@@ -27,6 +27,8 @@ ATHLETES = pd.read_csv("2025_Problem_C_Data/summerOly_athletes.csv")
 ATHLETES = ATHLETES[ATHLETES["Year"] >= BEGIN_YEAR]
 
 COUNTRIES = pd.read_csv("countries.csv")
+
+
 # 获取国家历年成绩
 def get_country_medals(NOC):
     data_real = MEDAL_COUNTS[MEDAL_COUNTS["NOC"] == NOC]
@@ -60,26 +62,48 @@ def get_country_medals(NOC):
 
 def get_athlete_data(Team, year):
     records = ATHLETES[(ATHLETES["Year"] == year) & (ATHLETES["Team"] == Team)]
-
     # 每个项目参加的人次数
-    sports = records.groupby("Sport")["Medal"].count()
+    sport_medals = records.groupby("Sport")["Medal"].count()
     # 最多的前三个大项目，参与这三个大项目的人次是adventage_athletes,然后参加别的项目的是other_athletes
-    advantage_athletes = sports.nlargest(3).sum()
-    other_athletes = sports.sum() - advantage_athletes
+    advantage_athletes = sport_medals.nlargest(3).sum()
+    other_athletes = sport_medals.sum() - advantage_athletes
 
-    medals, _ = get_country_medals(Team)
-    total_medals = medals[medals["Year"] == year]["Total"].sum()
-    
-    return advantage_athletes, other_athletes, total_medals
+    sport_medals, _ = get_country_medals(Team)
+    total_medals = sport_medals[sport_medals["Year"] == year]["Total"].sum()
+
+    # breakpoint()
+    # 删除无用列
+    records.drop(["Name", "Sex"], axis=1, inplace=True)
+    # 合并相同项，这样团体项目只有一个奖牌
+    records = records.drop_duplicates()
+    records["Medal"] = records["Medal"].apply(
+        lambda x: 1 if x in ("Bronze", "Silver", "Gold") else 0
+    )
+    sport_medals = records.groupby("Sport")["Medal"].sum()
+    try:
+        top_medals = sport_medals.nlargest(3).sum()
+    except Exception as e:
+        print(e)
+        top_medals = 0
+    # breakpoint()
+    if total_medals == 0 or len(records) < 3:
+        focus = 0
+    else:
+        focus = top_medals / sport_medals.sum()
+
+    return advantage_athletes, other_athletes, total_medals,focus
 
 
 def make_csv():
     with open(f"country-year_analysis.csv", "w") as f:
-        f.writelines("Country,Year,Advantage_athletes,Other_athletes,Total_medals,Focus\n")
+        f.writelines(
+            "Country,Year,Advantage_athletes,Other_athletes,Total_medals,Focus\n"
+        )
         for team in MEDAL_COUNTS["NOC"].unique():
             for year in MEDAL_COUNTS[MEDAL_COUNTS["NOC"] == team]["Year"].unique():
-                top_sports, other_sports, total_medals = get_athlete_data(team, year)
-                focus=COUNTRIES[COUNTRIES["Country"] == team]["Focus"].mean()
+                top_sports, other_sports, total_medals, focus = get_athlete_data(
+                    team, year
+                )
                 f.writelines(
                     f"{team},{year},{top_sports},{other_sports},{total_medals},{focus}\n"
                 )
