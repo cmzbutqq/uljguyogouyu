@@ -11,14 +11,10 @@ plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
 # ====================
 # 1. 数据准备
 # ====================
-# 生成示例数据（真实数据请替换此处）
-data = {
-    'Year': [2000, 2004, 2008, 2012, 2016, 2020],
-    'Advantage_athletes': [28, 32, 35, 40, 38, 45],
-    'Other_athletes': [75, 80, 82, 85, 88, 90],
-    'Total_medals': [15, 18, 22, 25, 24, 30]
-}
-df = pd.DataFrame(data)
+
+country='Kenya'
+data = pd.read_csv(f'country-year_analysis.csv')
+df = data[data['Country'] == country]
 
 # ====================
 # 2. 数据预处理
