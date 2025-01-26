@@ -97,7 +97,7 @@ def difference_until_stationary(series, max_diff=3):
 
 
 # 绘制自相关和偏自相关图
-def plot_acf_pacf(series,country):
+def plot_acf_pacf(series, country):
     fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
     plot_acf(series, ax=plt.gca())
@@ -111,7 +111,7 @@ def plot_acf_pacf(series,country):
 
 
 # 事后检验：残差分析
-def residual_analysis(model, series,country):
+def residual_analysis(model, series, country):
     residuals = model.resid
     resid_fig = plt.figure(figsize=(12, 6))
     plt.subplot(121)
@@ -210,15 +210,15 @@ def forecast_and_plot(
     # 绘图部分
     # 绘制实际值的折线图
     fig = plt.figure(figsize=(10, 6))
-    plt.plot(real_series, label="实际值", color="blue")
+    plt.plot(series, label="host interped", linestyle="--")
+    plt.plot(real_series, label="actual")
 
-    plt.plot(series, label="非东道主时的值", color="blue", linestyle="--")
     # type(forecast_cumsum) <class 'pandas.core.series.Series'>
     # forecast_cumsum -> idx:2028-01-01    val:123.079235 ...
 
     # 在开头添加数据点 连上实际的折线
     forecast = pd.concat([series[-1:], forecast])
-    plt.plot(forecast, label="预测值", color="red")
+    plt.plot(forecast, label="predict")
 
     # 绘制置信区间
     plt.fill_between(
@@ -226,8 +226,7 @@ def forecast_and_plot(
         pd.concat([series[-1:], conf_int_99.iloc[:, 0]]),
         pd.concat([series[-1:], conf_int_99.iloc[:, 1]]),
         color="lightblue",
-        alpha=0.1,
-        label="99% 置信区间",
+        label="99% conf_int",
     )
     plt.fill_between(
         forecast.index,
@@ -235,7 +234,7 @@ def forecast_and_plot(
         pd.concat([series[-1:], conf_int_95.iloc[:, 1]]),
         color="blue",
         alpha=0.1,
-        label="95% 置信区间",
+        label="95% conf_int",
     )
     plt.fill_between(
         forecast.index,
@@ -243,7 +242,7 @@ def forecast_and_plot(
         pd.concat([series[-1:], conf_int_90.iloc[:, 1]]),
         color="grey",
         alpha=0.2,
-        label="90% 置信区间",
+        label="90% conf_int",
     )
 
     plt.title(f"ARIMA Prediction of {country}")
@@ -283,7 +282,7 @@ def main(country):
         diff_count = 0
 
     # 绘制自相关和偏自相关图，帮助选择 ARIMA 模型参数
-    fig1 = plot_acf_pacf(diff_series,country)
+    fig1 = plot_acf_pacf(diff_series, country)
 
     # 自动选择 p, q 值
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
@@ -304,7 +303,7 @@ def main(country):
     )
 
     # 事后检验：残差分析
-    fig3, fig4 = residual_analysis(best_model, series,country)
+    fig3, fig4 = residual_analysis(best_model, series, country)
 
     fig1.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_acf-pacf.png")
     fig2.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_forecast.png")
