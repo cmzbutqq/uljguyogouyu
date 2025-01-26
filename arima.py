@@ -314,19 +314,19 @@ def main(country):
 
 
 if __name__ == "__main__":
-    # countries=MEDAL_COUNTS['NOC'].unique()
+    countries=MEDAL_COUNTS['NOC'].unique()
     # 高绩效-均衡型，美国、中国、德国、法国，中等绩效-稳定型，意大利、加拿大、西班牙、瑞典奖牌中等且波动小。这两类
-    countries = (
-        "France",
-        "China",
-        "United States",
-        "Germany",
-        "France",
-        "Italy",
-        "Canada",
-        "Spain",
-        "Sweden",
-    )
+    # countries = (
+    #     "France",
+    #     "China",
+    #     "United States",
+    #     "Germany",
+    #     "France",
+    #     "Italy",
+    #     "Canada",
+    #     "Spain",
+    #     "Sweden",
+    # )
     log_print(f"{len(countries)=}")
     for i, NOC in enumerate(countries):
         log_print(f"\t{i}\tTRYING {NOC=}:")
