@@ -180,9 +180,8 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count,real_se
         conf_int_90 -= diff_series.iloc[-1]
         conf_int_90+=series.iloc[-1]
     
-    H=1.5
+    H=np.float64(1.304798962386511) # 来自calc_host_buff.py
     if country == 'United States':
-        breakpoint()
         forecast[0:1] *= H
         conf_int_99[0:1] *= H
         conf_int_95[0:1] *= H
