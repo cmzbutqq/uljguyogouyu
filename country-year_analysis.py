@@ -58,16 +58,16 @@ def get_athlete_data(Team,year):
     # 每个项目参加的人次数
     sports = records.groupby('Sport')['Medal'].count()
     #最多的前三个大项目，参与这三个大项目的人次是adventage_athletes,然后参加别的项目的是other_athletes
-    top_sports=sports.nlargest(3).sum()
-    other_sports=sports.sum()-top_sports
+    advantage_athletes=sports.nlargest(3).sum()
+    other_athletes=sports.sum()-advantage_athletes
 
     medals,_=get_country_medals(Team)
     total_medals=medals[medals['Year']==year]['Total'].sum()
-    return top_sports,other_sports,total_medals
+    return advantage_athletes,other_athletes,total_medals
 
 def make_csv():
     with open(f"country-year_analysis.csv", "w") as f:
-        f.writelines("Country,Year,top_sports,other_sports,total_medals\n")
+        f.writelines("Country,Year,Advantage_athletes,Other_athletes,Total_medals\n")
         for country in MEDAL_COUNTS['NOC'].unique():
             for year in MEDAL_COUNTS[MEDAL_COUNTS['NOC']==country]['Year'].unique():
                 top_sports,other_sports,total_medals=get_athlete_data(country,year)
