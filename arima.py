@@ -16,7 +16,7 @@ plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
 # SAVE_FOLDER = f"plots/arima/{BEGIN_YEAR}/"
 SAVE_FOLDER = f"plots/arima/"
 #读取csv
-path="2025_Problem_C_Data/summerOly_medal_counts.csv"
+path="medal_counts_with_host.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
 MEDAL_COUNTS = pd.read_csv(path)
 MEDAL_COUNTS=MEDAL_COUNTS[MEDAL_COUNTS['Year']>=BEGIN_YEAR]
@@ -34,20 +34,27 @@ def err_print(str):
 
 #选取指定国家
 def get_country_data(NOC):
-    data = MEDAL_COUNTS[MEDAL_COUNTS['NOC']==NOC]
+    data_host = MEDAL_COUNTS[MEDAL_COUNTS['NOC']==NOC]
     #年份不能重复
-    assert not data['Year'].duplicated().any(),"a country with MULTIPLE joins in ONE YEAR"
+    assert not data_host['Year'].duplicated().any(),"a country with MULTIPLE joins in ONE YEAR"
     # 按year排序
-    data = data.sort_values(by='Year',inplace=False)
-    # 选择年份和Total列
-    data = data[['Year','Total']]
-    data['Year'] = pd.to_datetime(data['Year'], format='%Y')
-    data.set_index('Year', inplace=True)
+    data_host = data_host.sort_values(by='Year',inplace=False)
+    # 选择列
+    data_host = data_host[['Year','Total','Host']]
+    data_host['Year'] = pd.to_datetime(data_host['Year'], format='%Y')
+    data_host.set_index('Year', inplace=True)
+    #删除东道主年份
+    data = data_host.drop(data_host[data_host['Host']==1].index)
     # 给缺少的年份插值
+    data_host = data_host.resample(FREQ).interpolate(method='linear')
     data = data.resample(FREQ).interpolate(method='linear')
+    # 法国插值至2024
+    if NOC == 'France':
+        data = data_host.copy(deep=True)
+        data[-1:]=data[-2:-1]
     # 4年一度
-    data.index.freq = FREQ
-    return data
+    data_host.index.freq = FREQ
+    return data,data_host
 
 # 事前检验：ADF 检验平稳性
 def adf_test(series):
@@ -136,7 +143,7 @@ def auto_select_pq(series, max_p=5, max_q=5):
     return best_model, best_order
 
 # 预测并绘制图表
-def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
+def forecast_and_plot(series, model, n_forecast, diff_series, diff_count,real_series,country):
     # 获取预测结果及其置信区间
     forecast_result = model.get_forecast(steps=n_forecast)
     forecast = forecast_result.predicted_mean  # 预测值
@@ -172,12 +179,21 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
         #差分值改成原值
         conf_int_90 -= diff_series.iloc[-1]
         conf_int_90+=series.iloc[-1]
-        
-        
+    
+    H=1.5
+    if country == 'United States':
+        breakpoint()
+        forecast[0:1] *= H
+        conf_int_99[0:1] *= H
+        conf_int_95[0:1] *= H
+        conf_int_90[0:1] *= H
+    
     # 绘图部分
-    # 绘制预测结果与实际值的折线图
+    # 绘制实际值的折线图
     fig = plt.figure(figsize=(10, 6))
-    plt.plot(series, label="实际值", color='blue')
+    plt.plot(real_series, label="实际值", color='blue')
+    
+    plt.plot(series, label="非东道主时的值", color='blue',linestyle='--')
     #type(forecast_cumsum) <class 'pandas.core.series.Series'>
     #forecast_cumsum -> idx:2028-01-01    val:123.079235 ...
     
@@ -190,7 +206,7 @@ def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
     plt.fill_between(forecast.index, pd.concat([series[-1:], conf_int_95.iloc[:, 0]]), pd.concat([series[-1:], conf_int_95.iloc[:, 1]]), color='blue', alpha=0.1, label='95% 置信区间')
     plt.fill_between(forecast.index, pd.concat([series[-1:], conf_int_90.iloc[:, 0]]), pd.concat([series[-1:], conf_int_90.iloc[:, 1]]), color='grey', alpha=0.2, label='90% 置信区间')
     
-    plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
+    plt.title(f"ARIMA Prediction of {country}")
     plt.legend()
     return fig
 # 生成模拟时间序列数据
@@ -206,7 +222,7 @@ def generate_test_series():
 
 # 主程序
 def main(country):
-    data= get_country_data(country)
+    data,real_data= get_country_data(country)
     # 选择要建模的序列（例如：'Value' 列）
     series = data['Total']
     if len(series) < 2:
@@ -233,7 +249,8 @@ def main(country):
     print(f"最优模型：ARIMA{best_order}")
     
     # 预测并绘制结果
-    fig2=forecast_and_plot(series, best_model, n_forecast=N_FORECAST, diff_series=diff_series, diff_count=diff_count)
+    real_series = real_data['Total']
+    fig2=forecast_and_plot(series, best_model, n_forecast=N_FORECAST, diff_series=diff_series, diff_count=diff_count,real_series=real_series, country=country)
     
     # 事后检验：残差分析
     fig3,fig4=residual_analysis(best_model, series)
@@ -247,8 +264,9 @@ if __name__ == "__main__":
     # countries=MEDAL_COUNTS['NOC'].unique()
     #高绩效-均衡型，美国、中国、德国、法国，中等绩效-稳定型，意大利、加拿大、西班牙、瑞典奖牌中等且波动小。这两类
     countries = (
-        'United States',
+        'France',
         'China',
+        'United States',
         'Germany',
         'France',
         'Italy',
