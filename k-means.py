@@ -4,6 +4,13 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
+"""
+k-means聚类分析
+countries.csv
+=>
+country_clusters.csv
+"""
+
 SEED = 42
 pd.set_option("display.max_rows", None)  # 不限制行数
 # 假设df是包含上述数据的DataFrame

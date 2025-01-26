@@ -4,6 +4,13 @@ import pandas as pd
 from statsmodels.tsa.stattools import acf
 from itertools import product
 
+"""
+绘制一个国家在一段时间内获得奖牌数量的自相关函数图
+summerOly_medal_counts.csv
+=>
+plots
+"""
+
 medals = pd.read_csv("2025_Problem_C_Data/" + "summerOly_medal_counts.csv")
 print(medals.head())
 COUNTRIES = (

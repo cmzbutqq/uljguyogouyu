@@ -8,6 +8,12 @@ from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
 from datetime import datetime
 
+"""
+用ARIMA模型预测国家奥运奖牌数
+medal_counts_with_host.csv
+=>
+plots
+"""
 FREQ = "4YS-JAN"
 BEGIN_YEAR = 1992
 N_FORECAST = 1

@@ -2,6 +2,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""
+提供判断某国家是否在某年举办过奥运会的函数
+summerOly_medal_counts.csv
+=>
+medal_counts_with_host.csv
+"""
+
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
 medal_counts = pd.read_csv("2025_Problem_C_Data/summerOly_medal_counts.csv")
 HOSTS = pd.read_csv("hosts.csv", index_col="Year")

@@ -2,6 +2,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""
+计算东道主对国家获奖牌数的加成效果
+medal_counts_with_host.csv
+=>
+H=np.float64(1.304798962386511)
+"""
+
 FREQ = "4YS-JAN"
 BEGIN_YEAR = 1992
 N_FORECAST = 1

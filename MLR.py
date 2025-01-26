@@ -6,6 +6,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 from scipy.stats import shapiro
 
+"""
+MLR分析
+country-year_analysis.csv
+=>
+mlr_results.csv
+"""
+
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置中文字体
 plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
 
@@ -14,11 +21,11 @@ plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
 # ====================
 data = pd.read_csv(f"country-year_analysis.csv")
 # countries = ("South Korea", "Jamaica", "Finland", "Ireland", "Japan")
-countries=data["Country"].unique()
+countries = data["Country"].unique()
 
 
 def main(country):
-    
+
     df = data[data["Country"] == country]
     # ====================
     # 2. 数据预处理

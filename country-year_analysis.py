@@ -8,6 +8,15 @@ from statsmodels.graphics.gofplots import qqplot
 from scipy.stats import shapiro
 from datetime import datetime
 
+"""
+分析每个国家每届奥运会的信息：Country,Year,Advantage_athletes,Other_athletes,Total_medals,Focus
+用于MLR分析
+summerOly_athletes.csv, medal_counts_with_host.csv
+=>
+country-year_analysis.csv
+"""
+
+
 FREQ = "4YS-JAN"
 BEGIN_YEAR = 1992
 N_FORECAST = 1

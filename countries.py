@@ -2,6 +2,14 @@ import pandas as pd
 import numpy as np
 from scipy.stats import variation
 
+"""
+计算每个国家历年来奥运总体的奖牌得分（LNM）、获奖稳定性（CV）、参赛连续性（CONTIN）和优势项目集中度（Focus）
+用于k-means分析
+summerOly_athletes.csv
+=>
+countries.csv
+"""
+
 # 加载数据
 # Name,Sex,Team,NOC,Year,City,Sport,Event,Medal
 df = pd.read_csv("2025_Problem_C_Data/summerOly_athletes.csv")
