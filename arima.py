@@ -9,10 +9,12 @@ from scipy.stats import shapiro
 from datetime import datetime
 FREQ='4YS-JAN'
 BEGIN_YEAR = 1992
+N_FORECAST=1
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 plt.rcParams['axes.unicode_minus'] = False   # 正常显示负号
-SAVE_FOLDER = f"plots/arima/{BEGIN_YEAR}/"
+# SAVE_FOLDER = f"plots/arima/{BEGIN_YEAR}/"
+SAVE_FOLDER = f"plots/arima/"
 #读取csv
 path="2025_Problem_C_Data/summerOly_medal_counts.csv"
 # Rank,NOC,Gold,Silver,Bronze,Total,Year
@@ -135,26 +137,59 @@ def auto_select_pq(series, max_p=5, max_q=5):
 
 # 预测并绘制图表
 def forecast_and_plot(series, model, n_forecast, diff_series, diff_count):
-    # 预测未来 n 期
-    forecast = model.forecast(steps=n_forecast)
+    # 获取预测结果及其置信区间
+    forecast_result = model.get_forecast(steps=n_forecast)
+    forecast = forecast_result.predicted_mean  # 预测值
+    conf_int_99 = forecast_result.conf_int(alpha=0.01)  # 99% 置信区间
+    conf_int_95 = forecast_result.conf_int(alpha=0.05)  # 95% 置信区间
+    conf_int_90 = forecast_result.conf_int(alpha=0.10)  # 90% 置信区间
     
-    # 如果数据进行了差分，需要进行多次还原
-    forecast_cumsum = forecast
     if diff_count > 0:
         for i in range(diff_count):
-            forecast_cumsum = forecast_cumsum.cumsum()  # 累加每次差分的结果
-            forecast_cumsum += diff_series.iloc[-1]  # 加上最后一个差分值
+            forecast = forecast.cumsum()  # 累加每次差分的结果
+            forecast += diff_series.iloc[-1]  # 加上最后一个差分值
         #差分值改成原值
-        forecast_cumsum -= diff_series.iloc[-1]
-        forecast_cumsum+=series.iloc[-1]
+        forecast -= diff_series.iloc[-1]
+        forecast+=series.iloc[-1]
+        
+        for i in range(diff_count):
+            conf_int_99 = conf_int_99.cumsum()  # 累加每次差分的结果
+            conf_int_99 += diff_series.iloc[-1]  # 加上最后一个差分值
+        #差分值改成原值
+        conf_int_99 -= diff_series.iloc[-1]
+        conf_int_99+=series.iloc[-1]
+        
+        for i in range(diff_count):
+            conf_int_95 = conf_int_95.cumsum()  # 累加每次差分的结果
+            conf_int_95 += diff_series.iloc[-1]  # 加上最后一个差分值
+        #差分值改成原值
+        conf_int_95 -= diff_series.iloc[-1]
+        conf_int_95+=series.iloc[-1]
+        
+        for i in range(diff_count):
+            conf_int_90 = conf_int_90.cumsum()  # 累加每次差分的结果
+            conf_int_90 += diff_series.iloc[-1]  # 加上最后一个差分值
+        #差分值改成原值
+        conf_int_90 -= diff_series.iloc[-1]
+        conf_int_90+=series.iloc[-1]
+        
+        
+    # 绘图部分
     # 绘制预测结果与实际值的折线图
     fig = plt.figure(figsize=(10, 6))
     plt.plot(series, label="实际值", color='blue')
     #type(forecast_cumsum) <class 'pandas.core.series.Series'>
     #forecast_cumsum -> idx:2028-01-01    val:123.079235 ...
+    
     #在开头添加数据点 连上实际的折线
-    forecast_cumsum = pd.concat([series[-1:], forecast_cumsum])
-    plt.plot(forecast_cumsum)
+    forecast = pd.concat([series[-1:], forecast])
+    plt.plot(forecast,label="预测值", color='red')
+    
+    # 绘制置信区间
+    plt.fill_between(forecast.index, pd.concat([series[-1:], conf_int_99.iloc[:, 0]]), pd.concat([series[-1:], conf_int_99.iloc[:, 1]]), color='lightblue', alpha=0.1, label='99% 置信区间')
+    plt.fill_between(forecast.index, pd.concat([series[-1:], conf_int_95.iloc[:, 0]]), pd.concat([series[-1:], conf_int_95.iloc[:, 1]]), color='blue', alpha=0.1, label='95% 置信区间')
+    plt.fill_between(forecast.index, pd.concat([series[-1:], conf_int_90.iloc[:, 0]]), pd.concat([series[-1:], conf_int_90.iloc[:, 1]]), color='grey', alpha=0.2, label='90% 置信区间')
+    
     plt.title(f"ARIMA 模型预测结果与实际值比较图，展示模型的预测精度")
     plt.legend()
     return fig
@@ -198,25 +233,37 @@ def main(country):
     print(f"最优模型：ARIMA{best_order}")
     
     # 预测并绘制结果
-    fig2=forecast_and_plot(series, best_model, n_forecast=10, diff_series=diff_series, diff_count=diff_count)
+    fig2=forecast_and_plot(series, best_model, n_forecast=N_FORECAST, diff_series=diff_series, diff_count=diff_count)
     
     # 事后检验：残差分析
     fig3,fig4=residual_analysis(best_model, series)
     
-    fig1.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_acf-pacf.png")
-    fig2.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_forecast.png")
-    fig3.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_resid-acf-pacf.png")
-    fig4.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_qqplot.png")
+    fig1.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_{N_FORECAST}_acf-pacf.png")
+    fig2.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_{N_FORECAST}_forecast.png")
+    fig3.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_{N_FORECAST}_resid-acf-pacf.png")
+    fig4.savefig(SAVE_FOLDER+f"{country}_{BEGIN_YEAR}_{N_FORECAST}_qqplot.png")
 
 if __name__ == "__main__":
-    countries=MEDAL_COUNTS['NOC'].unique()
+    # countries=MEDAL_COUNTS['NOC'].unique()
+    #高绩效-均衡型，美国、中国、德国、法国，中等绩效-稳定型，意大利、加拿大、西班牙、瑞典奖牌中等且波动小。这两类
+    countries = (
+        'United States',
+        'China',
+        'Germany',
+        'France',
+        'Italy',
+        'Canada',
+        'Spain',
+        'Sweden',
+    )
     log_print(f"{len(countries)=}")
     for i,NOC in enumerate(countries):
         log_print(f"\t{i}\tTRYING {NOC=}:")
-        try:
-            main(NOC)
-        except Exception as e:
-            err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
+        main(NOC)
+        # try:
+        #     main(NOC)
+        # except Exception as e:
+        #     err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
         plt.close('all')
         
     
