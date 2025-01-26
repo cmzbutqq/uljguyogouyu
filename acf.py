@@ -4,6 +4,7 @@ import pandas as pd
 from statsmodels.tsa.stattools import acf
 from itertools import product
 import style
+
 """
 绘制一个国家在一段时间内获得奖牌数量的自相关函数图
 summerOly_medal_counts.csv
@@ -35,4 +36,4 @@ for start_year, y, country in product(YEARS, Ys, COUNTRIES):
     plt.title(f"ACF for {country} in {y} medals from {start_year}")
     plt.xlabel("Lag")
     plt.ylabel("ACF")
-    plt.savefig(f"plots/acf/ACF_{country}_{y}_{start_year}.png")
+    plt.savefig(f"plots/acf/ACF_{country}_{y}_{start_year}.png", dpi=300)
