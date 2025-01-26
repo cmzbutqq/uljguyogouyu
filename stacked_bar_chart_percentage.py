@@ -1,4 +1,5 @@
 import pandas as pd
+import style
 
 BEGIN_YEAR = 1992
 df = pd.read_csv("2025_Problem_C_Data/summerOly_medal_counts.csv")
@@ -63,14 +64,12 @@ plt.figure(figsize=(10, 6))
 countries = df["NOC"].unique()
 years = df["Year"].unique()
 
-# 新代码：使用高对比度调色板，并为 Others 单独设置灰色
+# 为 Others 单独设置灰色
 main_countries = [c for c in df["NOC"].unique() if c != "Others"]
-palette = sns.color_palette("tab20", n_colors=len(main_countries))  # 主要国家用鲜明颜色
-palette.append((0.8, 0.8, 0.8))  # Others 用灰色
-
 # 遍历顺序：先画 Others，避免覆盖主要国家
 countries = ["Others"] + main_countries  # Others 放在最底层
 
+palette = sns.color_palette()
 
 # 保存每层的底部位置
 bottom = pd.Series(0, index=years)
@@ -82,7 +81,7 @@ for i, country in enumerate(countries):
         x="Year",
         y="percent",
         data=subset,
-        color=palette[i],
+        color=(0.9, 0.9, 0.9) if i == 0 else palette[i % len(palette)],
         label=country,
         bottom=bottom.loc[subset["Year"]],
     )
