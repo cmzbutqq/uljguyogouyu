@@ -12,12 +12,13 @@ plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
 # ====================
 # 1. 数据准备
 # ====================
-
-countries = ("South Korea", "Jamaica", "Finland", "Ireland","Japan")
+data = pd.read_csv(f"country-year_analysis.csv")
+# countries = ("South Korea", "Jamaica", "Finland", "Ireland", "Japan")
+countries=data["Country"].unique()
 
 
 def main(country):
-    data = pd.read_csv(f"country-year_analysis.csv")
+    
     df = data[data["Country"] == country]
     # ====================
     # 2. 数据预处理
@@ -36,8 +37,10 @@ def main(country):
     # 4. 模型评估
     # ====================
     print("=== 模型评估 ===")
-    print(f"R² Score: {r2_score(y, y_pred):.3f}")
-    print(f"RMSE: {np.sqrt(mean_squared_error(y, y_pred)):.2f}")
+    r2 = r2_score(y, y_pred)
+    print(f"R² Score: {r2:.3f}")
+    rmse = np.sqrt(mean_squared_error(y, y_pred))
+    print(f"RMSE: {rmse:.2f}")
 
     # ====================
     # 5. 回归方程输出
@@ -100,15 +103,26 @@ def main(country):
     # ====================
     # 8. 新数据预测
     # ====================
-    hist_data = df[["Advantage_athletes", "Other_athletes", "Focus"]] [-4:-1]
-    new_data =[ hist_data.mean().tolist() ]
+    hist_data = df[["Advantage_athletes", "Other_athletes", "Focus"]][-4:-1]
+    new_data = [hist_data.mean().tolist()]
     prediction = model.predict(new_data)
     print(f"\n=== 2024年预测 ===")
     print(f"优势运动员: {new_data[0][0]}人")
     print(f"其他运动员: {new_data[0][1]}人")
     print(f"focus: {new_data[0][2]}")
     print(f"预测奖牌数: {prediction[0]:.1f}枚")
+    return p_value, r2, rmse, equation
 
-for country in countries:
-    print(f"\n\n\n=== {country} ===")
-    main(country)
+
+with open("mlr_results.csv", "w", encoding="utf-8") as f:
+    f.write("country,p_value, r2, rmse, equation\n")
+    for country in countries:
+        print(f"\n\n\n=== {country} ===")
+        try:
+            perf = main(country)
+            f.write(f"{country},{perf[0]},{perf[1]},{perf[2]},{perf[3]}\n")
+
+        except Exception as e:
+            print(f"Error: {e}")
+            # f.write(f"{country},0,0,0,{e}\n")
+            continue
