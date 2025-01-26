@@ -44,7 +44,7 @@
 42,11,Greece,1,0,1,2,1904,False
 43,12,Australia,0,3,1,4,1904,False
 44,13,France,0,1,0,1,1904,False
-45,1,Great Britain,56,51,39,146,1908,False
+45,1,Great Britain,56,51,39,146,1908,True
 46,2,United States,23,12,12,47,1908,False
 47,3,Sweden,8,6,11,25,1908,False
 48,4,France,5,5,9,19,1908,False
@@ -234,7 +234,7 @@
 232,9,Switzerland,5,10,5,20,1948,False
 233,10,Denmark,5,7,8,20,1948,False
 234,11,Netherlands,5,2,9,16,1948,False
-235,12,Great Britain,3,14,6,23,1948,False
+235,12,Great Britain,3,14,6,23,1948,True
 236,13,Argentina,3,3,1,7,1948,False
 237,14,Australia,2,6,5,13,1948,False
 238,15,Belgium,2,2,3,7,1948,False
@@ -1080,7 +1080,7 @@
 1078,82,Venezuela,0,0,1,1,2008,False
 1079,1,United States,48,26,30,104,2012,False
 1080,2,China,39,31,22,92,2012,False
-1081,3,Great Britain,29,18,18,65,2012,False
+1081,3,Great Britain,29,18,18,65,2012,True
 1082,4,Russia,18,21,26,65,2012,False
 1083,5,South Korea,13,9,9,31,2012,False
 1084,6,Germany,11,20,13,44,2012,False

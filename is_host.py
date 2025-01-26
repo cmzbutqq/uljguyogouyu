@@ -7,6 +7,8 @@ medal_counts = pd.read_csv("2025_Problem_C_Data/summerOly_medal_counts.csv")
 HOSTS= pd.read_csv("hosts.csv",index_col='Year')
 
 def is_host(year,country):
+    if country == 'Great Britain':
+        country = 'United Kingdom'
     if country in HOSTS.loc[year].values:
         print(f"{country} hosted the Olympics in {year}")
         return True
