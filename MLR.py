@@ -13,7 +13,7 @@ plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
 # 1. 数据准备
 # ====================
 
-country = "Kenya"
+country = "South Korea"
 data = pd.read_csv(f"country-year_analysis.csv")
 df = data[data["Country"] == country]
 
@@ -21,7 +21,6 @@ df = data[data["Country"] == country]
 # 2. 数据预处理
 # ====================
 X = df[["Advantage_athletes", "Other_athletes", "Focus"]]
-print(X["Focus"])
 y = df["Total_medals"]
 
 # ====================
