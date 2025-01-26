@@ -101,3 +101,20 @@ plt.figure()
 sns.pairplot(df[features+['cluster']],hue='cluster')
 plt.show()
 # plot_silhouette(df[features], df['cluster'],k)
+
+from scipy import stats
+
+# 对每个特征进行ANOVA分析
+print("\nANOVA分析结果:")
+for feature in features:
+    # 按聚类分组数据
+    groups = []
+    for cluster in sorted(df['cluster'].unique()):
+        groups.append(df[df['cluster'] == cluster][feature].values)
+    
+    # 执行ANOVA检验
+    f_stat, p_value = stats.f_oneway(*groups)
+    
+    # 判断显著性（假设显著性水平为0.05）
+    significant = "显著" if p_value < 0.05 else "不显著"
+    print(f"{feature}: F值={f_stat:.2f}, p值={p_value:.4f} ({significant})")
