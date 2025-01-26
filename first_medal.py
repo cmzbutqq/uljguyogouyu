@@ -34,14 +34,14 @@ def main():
             year_first_countries[year] = []
         year_first_countries[year].append(country)
 
-    # 按国家名称排序并输出
-    for country in sorted(country_first_year):
-        print(f"{country},{country_first_year[country]}")
+    # # 按国家名称排序并输出
+    # for country in sorted(country_first_year):
+    #     print(f"{country},{country_first_year[country]}")
 
-    # 按年份排序输出
-    for year in sorted(year_first_countries):
-        countries = sorted(year_first_countries[year])  # 国家按字母顺序排序
-        print(f"{year}: {', '.join(countries)}")
+    # # 按年份排序输出
+    # for year in sorted(year_first_countries):
+    #     countries = sorted(year_first_countries[year])  # 国家按字母顺序排序
+    #     print(f"{year}: {', '.join(countries)}")
     return year_first_countries, country_first_year
 
 
