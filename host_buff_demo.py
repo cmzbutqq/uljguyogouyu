@@ -61,7 +61,7 @@ def ploot(series, real_series, country):
     plt.xlabel("Year")
     plt.ylabel("Medal Count")
     plt.legend()
-    plt.savefig(f"plots/host_effect_demo/{country}_{BEGIN_YEAR}.png")
+    plt.savefig(f"plots/host_effect_demo/{country}_{BEGIN_YEAR}.png",dpi=300)
     return fig
 
 
