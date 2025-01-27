@@ -1,0 +1,697 @@
+NOC,Sport,type1,type2,type3,importance
+AFG,Taekwondo,False,False,True,1
+AHO,Sailing,False,False,True,1
+AIN,Trampoline Gymnastics,True,False,True,2
+ALB,Wrestling,False,False,True,1
+ALG,Athletics,False,True,True,2
+ALG,Boxing,False,True,True,2
+ANZ,Swimming,False,False,True,1
+ARG,Boxing,False,True,True,2
+ARG,Hockey,False,True,False,1
+ARG,Sailing,False,True,False,1
+ARM,Weightlifting,False,True,True,2
+ARM,Wrestling,False,True,True,2
+AUS,Athletics,False,True,False,1
+AUS,Basketball,False,True,False,1
+AUS,Canoe Slalom,True,False,False,1
+AUS,Canoeing,False,True,False,1
+AUS,Cycling,False,True,False,1
+AUS,Cycling BMX Freestyle,True,False,False,1
+AUS,Cycling Road,True,False,False,1
+AUS,Diving,False,True,False,1
+AUS,Equestrianism,False,True,False,1
+AUS,Hockey,True,True,False,2
+AUS,Marathon Swimming,True,False,False,1
+AUS,Rowing,False,True,False,1
+AUS,Sailing,False,True,False,1
+AUS,Shooting,False,True,False,1
+AUS,Skateboarding,True,False,False,1
+AUS,Softball,True,True,False,2
+AUS,Surfing,True,False,False,1
+AUS,Swimming,True,True,True,3
+AUS,Tennis,False,True,False,1
+AUS,Triathlon,True,True,False,2
+AUT,Canoeing,False,True,False,1
+AUT,Shooting,False,True,False,1
+AUT,Sport Climbing,True,False,False,1
+AUT,Swimming,False,True,False,1
+AUT,Weightlifting,False,True,False,1
+AZE,Boxing,False,True,False,1
+AZE,Judo,False,True,False,1
+AZE,Wrestling,False,True,True,2
+BAH,Athletics,False,True,True,2
+BAR,Athletics,False,False,True,1
+BDI,Athletics,False,False,True,1
+BEL,Athletics,False,True,False,1
+BEL,Cycling,False,True,False,1
+BEL,Cycling Road,True,False,False,1
+BEL,Judo,False,True,False,1
+BER,Boxing,False,False,True,1
+BER,Triathlon,False,False,True,1
+BLR,Athletics,False,True,False,1
+BLR,Canoeing,False,True,False,1
+BLR,Rhythmic Gymnastics,True,False,False,1
+BLR,Rowing,False,True,False,1
+BLR,Shooting,False,True,False,1
+BLR,Weightlifting,False,True,False,1
+BLR,Wrestling,False,True,False,1
+BOH,Tennis,False,False,True,1
+BOT,Athletics,False,False,True,1
+BRA,Athletics,False,True,False,1
+BRA,Beach Volleyball,True,True,False,2
+BRA,Boxing,False,True,False,1
+BRA,Equestrianism,False,True,False,1
+BRA,Football,False,True,False,1
+BRA,Judo,False,True,False,1
+BRA,Marathon Swimming,True,False,False,1
+BRA,Sailing,False,True,False,1
+BRA,Skateboarding,True,False,False,1
+BRA,Surfing,True,False,False,1
+BRA,Swimming,False,True,False,1
+BRA,Volleyball,True,True,False,2
+BRN,Athletics,False,True,True,2
+BUL,Athletics,False,True,False,1
+BUL,Boxing,False,True,False,1
+BUL,Canoeing,False,True,False,1
+BUL,Gymnastics,False,True,False,1
+BUL,Rhythmic Gymnastics,True,True,False,2
+BUL,Rowing,False,True,False,1
+BUL,Shooting,False,True,False,1
+BUL,Weightlifting,False,True,False,1
+BUL,Wrestling,False,True,True,2
+BUR,Athletics,False,False,True,1
+CAN,Athletics,False,True,False,1
+CAN,Baseball/Softball,True,False,False,1
+CAN,Boxing,False,True,False,1
+CAN,Breaking,True,False,False,1
+CAN,Canoeing,False,True,False,1
+CAN,Diving,False,True,False,1
+CAN,Football,False,True,False,1
+CAN,Ice Hockey,True,False,False,1
+CAN,Lacrosse,True,False,False,1
+CAN,Rowing,False,True,False,1
+CAN,Rugby Sevens,True,False,False,1
+CAN,Sailing,False,True,False,1
+CAN,Swimming,False,True,False,1
+CAN,Synchronized Swimming,True,True,False,2
+CAN,Trampolining,True,True,False,2
+CAN,Wrestling,False,True,False,1
+CHN,Archery,False,True,False,1
+CHN,Artistic Gymnastics,True,False,False,1
+CHN,Artistic Swimming,True,False,False,1
+CHN,Athletics,False,True,False,1
+CHN,Badminton,True,True,False,2
+CHN,Boxing,False,True,False,1
+CHN,Breaking,True,False,False,1
+CHN,Cycling,False,True,False,1
+CHN,Diving,True,True,False,2
+CHN,Fencing,False,True,False,1
+CHN,Gymnastics,False,True,False,1
+CHN,Judo,False,True,False,1
+CHN,Rowing,False,True,False,1
+CHN,Sailing,False,True,False,1
+CHN,Shooting,False,True,False,1
+CHN,Sport Climbing,True,False,False,1
+CHN,Swimming,False,True,False,1
+CHN,Synchronized Swimming,False,True,False,1
+CHN,Table Tennis,True,True,False,2
+CHN,Taekwondo,False,True,False,1
+CHN,Trampoline Gymnastics,True,False,False,1
+CHN,Trampolining,True,True,False,2
+CHN,Weightlifting,False,True,False,1
+CHN,Wrestling,False,True,False,1
+CIV,Taekwondo,False,True,True,2
+CMR,Athletics,False,False,True,1
+CMR,Boxing,False,False,True,1
+COL,Athletics,False,True,False,1
+COL,Cycling BMX Racing,True,False,False,1
+COL,Weightlifting,False,True,False,1
+CPV,Boxing,False,False,True,1
+CRC,Swimming,False,False,True,1
+CRO,Athletics,False,True,False,1
+CRO,Rowing,False,True,False,1
+CRO,Shooting,False,True,False,1
+CUB,Athletics,False,True,False,1
+CUB,Baseball,True,True,False,2
+CUB,Boxing,False,True,True,2
+CUB,Fencing,False,True,False,1
+CUB,Judo,False,True,False,1
+CUB,Shooting,False,True,False,1
+CUB,Taekwondo,False,True,False,1
+CUB,Volleyball,False,True,False,1
+CUB,Wrestling,False,True,False,1
+CYP,Sailing,False,False,True,1
+CZE,Athletics,False,True,False,1
+CZE,Canoeing,False,True,False,1
+CZE,Rowing,False,True,False,1
+CZE,Shooting,False,True,False,1
+CZE,Tennis,False,True,False,1
+DEN,Art Competitions,False,True,False,1
+DEN,Badminton,False,True,False,1
+DEN,Boxing,False,True,False,1
+DEN,Canoeing,False,True,False,1
+DEN,Cycling,False,True,False,1
+DEN,Handball,False,True,False,1
+DEN,Rowing,False,True,False,1
+DEN,Sailing,False,True,False,1
+DJI,Athletics,False,False,True,1
+DMA,Athletics,False,False,True,1
+DOM,Athletics,False,False,True,1
+DOM,Baseball/Softball,True,False,False,1
+ECU,Athletics,False,False,True,1
+ECU,Weightlifting,False,False,True,1
+EGY,Weightlifting,False,False,True,1
+EOR,Boxing,False,False,True,1
+ERI,Athletics,False,False,True,1
+ESP,Athletics,False,True,False,1
+ESP,Basketball,False,True,False,1
+ESP,Basque Pelota,True,False,False,1
+ESP,Boxing,False,True,False,1
+ESP,Canoeing,False,True,False,1
+ESP,Cycling,False,True,False,1
+ESP,Gymnastics,False,True,False,1
+ESP,Judo,False,True,False,1
+ESP,Sailing,False,True,False,1
+ESP,Taekwondo,False,True,False,1
+ESP,Tennis,False,True,False,1
+EST,Athletics,False,True,False,1
+EST,Weightlifting,False,True,False,1
+EST,Wrestling,False,False,True,1
+ETH,Athletics,False,True,True,2
+FIJ,Rugby Sevens,True,True,True,3
+FIN,Athletics,False,True,True,2
+FIN,Boxing,False,True,False,1
+FIN,Gymnastics,False,True,False,1
+FIN,Rowing,False,True,False,1
+FIN,Shooting,False,True,False,1
+FIN,Wrestling,False,True,False,1
+FRA,Archery,True,False,False,1
+FRA,Art Competitions,False,True,False,1
+FRA,Athletics,False,True,False,1
+FRA,Boxing,False,True,False,1
+FRA,Breaking,True,False,False,1
+FRA,Canoe Slalom,True,False,False,1
+FRA,Canoeing,False,True,False,1
+FRA,Cricket,True,False,False,1
+FRA,Croquet,True,False,False,1
+FRA,Cycling,True,True,False,2
+FRA,Cycling BMX Racing,True,False,False,1
+FRA,Cycling Mountain Bike,True,False,False,1
+FRA,Cycling Road,True,False,False,1
+FRA,Equestrianism,False,True,False,1
+FRA,Fencing,True,True,False,2
+FRA,Gymnastics,False,True,False,1
+FRA,Handball,False,True,False,1
+FRA,Judo,True,True,False,2
+FRA,Motorboating,True,False,False,1
+FRA,Rowing,False,True,False,1
+FRA,Rugby,True,False,False,1
+FRA,Rugby Sevens,True,False,False,1
+FRA,Sailing,False,True,False,1
+FRA,Shooting,False,True,False,1
+FRA,Surfing,True,False,False,1
+FRA,Swimming,False,True,False,1
+FRA,Taekwondo,False,True,False,1
+FRA,Weightlifting,False,True,False,1
+FRA,Wrestling,False,True,False,1
+FRG,Athletics,False,True,False,1
+FRG,Boxing,False,True,False,1
+FRG,Cycling,False,True,False,1
+FRG,Equestrianism,False,True,False,1
+FRG,Rowing,False,True,False,1
+FRG,Sailing,False,True,False,1
+FRG,Shooting,False,True,False,1
+FRG,Swimming,False,True,False,1
+FRG,Wrestling,False,True,False,1
+GAB,Taekwondo,False,False,True,1
+GBR,Art Competitions,False,True,False,1
+GBR,Athletics,False,True,False,1
+GBR,Boxing,False,True,False,1
+GBR,Canoe Slalom,True,False,False,1
+GBR,Canoeing,False,True,False,1
+GBR,Cricket,True,False,False,1
+GBR,Cycling,True,True,False,2
+GBR,Cycling BMX Freestyle,True,False,False,1
+GBR,Cycling BMX Racing,True,False,False,1
+GBR,Cycling Track,True,False,False,1
+GBR,Diving,False,True,False,1
+GBR,Equestrian,True,False,False,1
+GBR,Equestrianism,False,True,False,1
+GBR,Fencing,False,True,False,1
+GBR,Figure Skating,True,False,False,1
+GBR,Golf,True,False,False,1
+GBR,Gymnastics,False,True,False,1
+GBR,Hockey,True,True,False,2
+GBR,Jeu De Paume,True,False,False,1
+GBR,Judo,False,True,False,1
+GBR,Lacrosse,True,False,False,1
+GBR,Modern Pentathlon,False,True,False,1
+GBR,Motorboating,True,False,False,1
+GBR,Polo,True,False,False,1
+GBR,Racquets,True,False,False,1
+GBR,Rowing,False,True,False,1
+GBR,Rugby,True,False,False,1
+GBR,Sailing,True,True,False,2
+GBR,Shooting,False,True,False,1
+GBR,Swimming,False,True,False,1
+GBR,Taekwondo,False,True,False,1
+GBR,Tennis,True,False,False,1
+GBR,Trampoline Gymnastics,True,False,False,1
+GBR,Triathlon,True,True,False,2
+GBR,Tug-Of-War,True,False,False,1
+GBR,Wrestling,False,True,False,1
+GDR,Athletics,False,True,False,1
+GDR,Boxing,False,True,False,1
+GDR,Canoeing,False,True,False,1
+GDR,Cycling,False,True,False,1
+GDR,Diving,False,True,False,1
+GDR,Football,False,True,False,1
+GDR,Gymnastics,False,True,False,1
+GDR,Rowing,False,True,False,1
+GDR,Sailing,False,True,False,1
+GDR,Shooting,False,True,False,1
+GDR,Swimming,False,True,False,1
+GDR,Weightlifting,False,True,False,1
+GDR,Wrestling,False,True,False,1
+GEO,Judo,False,True,True,2
+GEO,Weightlifting,False,True,False,1
+GEO,Wrestling,False,True,True,2
+GER,Alpinism,True,False,False,1
+GER,Archery,False,True,False,1
+GER,Art Competitions,True,True,False,2
+GER,Athletics,False,True,False,1
+GER,Boxing,False,True,False,1
+GER,Canoe Slalom,True,False,False,1
+GER,Canoe Sprint,True,False,False,1
+GER,Canoeing,True,True,False,2
+GER,Cycling,False,True,False,1
+GER,Diving,False,True,False,1
+GER,Equestrian,True,False,False,1
+GER,Equestrianism,True,True,False,2
+GER,Fencing,False,True,False,1
+GER,Football,False,True,False,1
+GER,Gymnastics,False,True,False,1
+GER,Hockey,True,True,False,2
+GER,Judo,False,True,False,1
+GER,Marathon Swimming,True,False,False,1
+GER,Rowing,False,True,False,1
+GER,Swimming,False,True,False,1
+GER,Table Tennis,False,True,False,1
+GER,Tennis,False,True,False,1
+GER,Tug-Of-War,True,False,False,1
+GER,Water Polo,False,True,False,1
+GER,Weightlifting,False,True,False,1
+GER,Wrestling,False,True,False,1
+GHA,Boxing,False,False,True,1
+GRE,Athletics,False,True,False,1
+GRE,Gymnastics,False,True,False,1
+GRE,Rowing,False,True,False,1
+GRE,Taekwondo,False,True,False,1
+GRE,Weightlifting,False,True,False,1
+GRE,Wrestling,False,True,False,1
+GRN,Athletics,False,True,True,2
+GUA,Athletics,False,False,True,1
+GUA,Shooting,False,False,True,1
+GUY,Boxing,False,False,True,1
+HAI,Athletics,False,False,True,1
+HAI,Rugby,False,False,True,1
+HAI,Shooting,False,False,True,1
+HKG,Swimming,False,False,True,1
+HUN,Art Competitions,False,True,False,1
+HUN,Athletics,False,True,False,1
+HUN,Boxing,False,True,False,1
+HUN,Canoe Sprint,True,False,False,1
+HUN,Canoeing,True,True,False,2
+HUN,Fencing,True,True,False,2
+HUN,Football,False,True,False,1
+HUN,Gymnastics,False,True,False,1
+HUN,Marathon Swimming,True,False,False,1
+HUN,Modern Pentathlon,True,True,False,2
+HUN,Shooting,False,True,False,1
+HUN,Swimming,False,True,False,1
+HUN,Water Polo,True,True,False,2
+HUN,Weightlifting,False,True,False,1
+HUN,Wrestling,False,True,False,1
+INA,Badminton,True,True,True,3
+INA,Weightlifting,False,True,True,2
+IND,Badminton,False,True,False,1
+IND,Hockey,True,True,True,3
+IND,Shooting,False,True,False,1
+IND,Wrestling,False,True,False,1
+IOA,Shooting,False,False,True,1
+IRI,Taekwondo,False,True,False,1
+IRI,Weightlifting,False,True,False,1
+IRI,Wrestling,False,True,True,2
+IRL,Boxing,False,False,True,1
+IRL,Rowing,False,True,False,1
+IRQ,Weightlifting,False,False,True,1
+ISL,Athletics,False,False,True,1
+ISR,Judo,False,True,True,2
+ISV,Sailing,False,False,True,1
+ITA,Archery,False,True,False,1
+ITA,Athletics,False,True,False,1
+ITA,Boxing,False,True,False,1
+ITA,Canoeing,False,True,False,1
+ITA,Cycling,False,True,False,1
+ITA,Diving,False,True,False,1
+ITA,Equestrianism,False,True,False,1
+ITA,Fencing,True,True,False,2
+ITA,Gymnastics,False,True,False,1
+ITA,Judo,False,True,False,1
+ITA,Marathon Swimming,True,False,False,1
+ITA,Modern Pentathlon,False,True,False,1
+ITA,Rowing,False,True,False,1
+ITA,Sailing,False,True,False,1
+ITA,Shooting,False,True,False,1
+ITA,Swimming,False,True,False,1
+ITA,Volleyball,False,True,False,1
+ITA,Weightlifting,False,True,False,1
+ITA,Wrestling,False,True,False,1
+JAM,Athletics,False,True,True,2
+JOR,Taekwondo,False,True,True,2
+JPN,Artistic Gymnastics,True,False,False,1
+JPN,Athletics,False,True,False,1
+JPN,Badminton,False,True,False,1
+JPN,Baseball,True,False,False,1
+JPN,Baseball/Softball,True,False,False,1
+JPN,Boxing,False,True,False,1
+JPN,Breaking,True,False,False,1
+JPN,Gymnastics,False,True,False,1
+JPN,Judo,True,True,False,2
+JPN,Shooting,False,True,False,1
+JPN,Skateboarding,True,False,False,1
+JPN,Softball,True,True,False,2
+JPN,Sport Climbing,True,False,False,1
+JPN,Surfing,True,False,False,1
+JPN,Swimming,False,True,False,1
+JPN,Synchronized Swimming,True,True,False,2
+JPN,Table Tennis,False,True,False,1
+JPN,Volleyball,False,True,False,1
+JPN,Weightlifting,False,True,False,1
+JPN,Wrestling,False,True,False,1
+KAZ,Boxing,False,True,True,2
+KAZ,Judo,False,True,False,1
+KAZ,Weightlifting,False,True,False,1
+KAZ,Wrestling,False,True,False,1
+KEN,Athletics,False,True,True,2
+KGZ,Wrestling,False,False,True,1
+KOR,Archery,True,True,False,2
+KOR,Badminton,True,True,False,2
+KOR,Baseball,True,False,False,1
+KOR,Boxing,False,True,False,1
+KOR,Fencing,False,True,False,1
+KOR,Gymnastics,False,True,False,1
+KOR,Handball,False,True,False,1
+KOR,Judo,False,True,False,1
+KOR,Shooting,False,True,False,1
+KOR,Table Tennis,True,True,False,2
+KOR,Taekwondo,True,True,False,2
+KOR,Weightlifting,False,True,False,1
+KOR,Wrestling,False,True,False,1
+KOS,Judo,False,True,True,2
+KSA,Equestrianism,False,False,True,1
+KUW,Shooting,False,False,True,1
+LAT,Athletics,False,True,False,1
+LCA,Athletics,False,False,True,1
+LIB,Wrestling,False,False,True,1
+LTU,Athletics,False,True,False,1
+LTU,Basketball,False,True,False,1
+LTU,Breaking,True,False,False,1
+LTU,Modern Pentathlon,False,True,False,1
+LUX,Art Competitions,False,False,True,1
+LUX,Athletics,False,False,True,1
+MAR,Athletics,False,True,True,2
+MAS,Badminton,False,True,True,2
+MEX,Athletics,False,True,False,1
+MEX,Boxing,False,True,False,1
+MEX,Diving,False,True,False,1
+MEX,Taekwondo,False,True,False,1
+MGL,Boxing,False,True,False,1
+MGL,Judo,False,True,True,2
+MGL,Wrestling,False,True,True,2
+MKD,Taekwondo,False,False,True,1
+MKD,Wrestling,False,False,True,1
+MNE,Handball,False,False,True,1
+MON,Art Competitions,False,False,True,1
+MOZ,Athletics,False,False,True,1
+MRI,Boxing,False,False,True,1
+NAM,Athletics,False,False,True,1
+NED,Art Competitions,False,True,False,1
+NED,Athletics,False,True,False,1
+NED,Boxing,False,True,False,1
+NED,Cycling,False,True,False,1
+NED,Cycling BMX Racing,True,False,False,1
+NED,Cycling Road,True,False,False,1
+NED,Cycling Track,True,False,False,1
+NED,Equestrianism,False,True,False,1
+NED,Hockey,True,True,False,2
+NED,Judo,False,True,False,1
+NED,Marathon Swimming,True,False,False,1
+NED,Rowing,False,True,False,1
+NED,Sailing,False,True,False,1
+NED,Swimming,False,True,False,1
+NGR,Athletics,False,True,True,2
+NIG,Boxing,False,False,True,1
+NIG,Taekwondo,False,False,True,1
+NOR,Athletics,False,True,False,1
+NOR,Canoeing,False,True,False,1
+NOR,Figure Skating,True,False,False,1
+NOR,Handball,False,True,False,1
+NOR,Rowing,False,True,False,1
+NOR,Sailing,False,True,False,1
+NZL,Athletics,False,True,False,1
+NZL,Cycling,False,True,False,1
+NZL,Equestrianism,False,True,False,1
+NZL,Golf,True,True,False,2
+NZL,Rowing,False,True,False,1
+NZL,Rugby Sevens,True,True,False,2
+NZL,Sailing,False,True,False,1
+NZL,Swimming,False,True,False,1
+NZL,Triathlon,True,False,False,1
+PAK,Hockey,False,True,True,2
+PAN,Athletics,False,False,True,1
+PAR,Football,False,False,True,1
+PER,Shooting,False,False,True,1
+PHI,Boxing,False,True,True,2
+POL,Art Competitions,False,True,False,1
+POL,Athletics,False,True,False,1
+POL,Boxing,False,True,False,1
+POL,Canoeing,False,True,False,1
+POL,Cycling,False,True,False,1
+POL,Fencing,False,True,False,1
+POL,Judo,False,True,False,1
+POL,Rowing,False,True,False,1
+POL,Shooting,False,True,False,1
+POL,Sport Climbing,True,False,False,1
+POL,Weightlifting,False,True,False,1
+POL,Wrestling,False,True,False,1
+POR,Athletics,False,True,True,2
+POR,Judo,False,True,False,1
+PRK,Boxing,False,True,False,1
+PRK,Judo,False,True,False,1
+PRK,Weightlifting,False,True,False,1
+PRK,Wrestling,False,True,False,1
+PUR,Boxing,False,False,True,1
+QAT,Athletics,False,True,True,2
+ROC,3x3 Basketball,True,False,False,1
+ROC,Artistic Swimming,True,False,False,1
+ROU,Athletics,False,True,False,1
+ROU,Boxing,False,True,False,1
+ROU,Canoeing,False,True,False,1
+ROU,Fencing,False,True,False,1
+ROU,Gymnastics,False,True,False,1
+ROU,Handball,False,True,False,1
+ROU,Rowing,False,True,False,1
+ROU,Shooting,False,True,False,1
+ROU,Weightlifting,False,True,False,1
+ROU,Wrestling,False,True,False,1
+RSA,Athletics,False,True,True,2
+RSA,Boxing,False,True,False,1
+RSA,Rugby Sevens,True,False,False,1
+RSA,Swimming,False,True,False,1
+RUS,Athletics,False,True,False,1
+RUS,Basketball,False,True,False,1
+RUS,Boxing,False,True,False,1
+RUS,Canoeing,False,True,False,1
+RUS,Cycling,False,True,False,1
+RUS,Diving,False,True,False,1
+RUS,Fencing,False,True,False,1
+RUS,Gymnastics,False,True,False,1
+RUS,Handball,False,True,False,1
+RUS,Modern Pentathlon,False,True,False,1
+RUS,Rhythmic Gymnastics,True,True,False,2
+RUS,Rowing,False,True,False,1
+RUS,Shooting,False,True,False,1
+RUS,Swimming,False,True,False,1
+RUS,Synchronized Swimming,True,True,False,2
+RUS,Tennis,False,True,False,1
+RUS,Trampolining,True,False,False,1
+RUS,Volleyball,False,True,False,1
+RUS,Weightlifting,False,True,False,1
+RUS,Wrestling,False,True,False,1
+SCG,Shooting,False,True,True,2
+SEN,Athletics,False,False,True,1
+SGP,Table Tennis,False,False,True,1
+SLO,Athletics,False,True,False,1
+SLO,Cycling Road,True,False,False,1
+SLO,Judo,False,True,False,1
+SLO,Sport Climbing,True,False,False,1
+SMR,Shooting,False,False,True,1
+SMR,Wrestling,False,False,True,1
+SRB,Taekwondo,False,True,False,1
+SRB,Water Polo,False,True,False,1
+SRI,Athletics,False,False,True,1
+SUD,Athletics,False,False,True,1
+SUI,Aeronautics,True,False,False,1
+SUI,Alpinism,True,False,False,1
+SUI,Cycling,False,True,False,1
+SUI,Cycling Mountain Bike,True,False,False,1
+SUI,Equestrianism,False,True,False,1
+SUI,Gymnastics,False,True,False,1
+SUI,Rowing,False,True,False,1
+SUI,Shooting,False,True,False,1
+SUI,Tennis,False,True,False,1
+SUI,Triathlon,True,False,False,1
+SUI,Wrestling,False,True,False,1
+SUR,Swimming,False,False,True,1
+SVK,Canoeing,False,True,True,2
+SVK,Shooting,False,True,False,1
+SWE,Athletics,False,True,False,1
+SWE,Boxing,False,True,False,1
+SWE,Canoeing,False,True,False,1
+SWE,Cycling,False,True,False,1
+SWE,Diving,False,True,False,1
+SWE,Equestrianism,False,True,False,1
+SWE,Fencing,False,True,False,1
+SWE,Figure Skating,True,False,False,1
+SWE,Handball,False,True,False,1
+SWE,Modern Pentathlon,True,True,False,2
+SWE,Sailing,False,True,False,1
+SWE,Shooting,False,True,False,1
+SWE,Swimming,False,True,False,1
+SWE,Tug-Of-War,True,False,False,1
+SWE,Wrestling,False,True,False,1
+TAN,Athletics,False,False,True,1
+TCH,Athletics,False,True,False,1
+TCH,Gymnastics,False,True,False,1
+TCH,Ice Hockey,True,False,False,1
+TCH,Rowing,False,True,False,1
+TCH,Shooting,False,True,False,1
+TCH,Weightlifting,False,True,False,1
+TCH,Wrestling,False,True,False,1
+TGA,Boxing,False,False,True,1
+THA,Boxing,False,True,True,2
+THA,Taekwondo,False,True,False,1
+THA,Weightlifting,False,True,True,2
+TJK,Judo,False,False,True,1
+TKM,Weightlifting,False,False,True,1
+TOG,Canoeing,False,False,True,1
+TPE,Taekwondo,False,True,False,1
+TPE,Weightlifting,False,True,False,1
+TTO,Athletics,False,True,True,2
+TUN,Athletics,False,True,False,1
+TUN,Taekwondo,False,True,False,1
+TUR,Athletics,False,True,False,1
+TUR,Karate,True,False,False,1
+TUR,Taekwondo,False,True,False,1
+TUR,Weightlifting,False,True,False,1
+TUR,Wrestling,False,True,True,2
+UAE,Judo,False,False,True,1
+UAE,Shooting,False,False,True,1
+UAR,Boxing,False,False,True,1
+UAR,Wrestling,False,False,True,1
+UGA,Athletics,False,False,True,1
+UGA,Boxing,False,False,True,1
+UKR,Archery,False,True,False,1
+UKR,Artistic Swimming,True,False,False,1
+UKR,Athletics,False,True,False,1
+UKR,Canoeing,False,True,False,1
+UKR,Fencing,False,True,False,1
+UKR,Gymnastics,False,True,False,1
+UKR,Judo,False,True,False,1
+UKR,Sailing,False,True,False,1
+UKR,Shooting,False,True,False,1
+UKR,Weightlifting,False,True,False,1
+UKR,Wrestling,False,True,False,1
+URS,Archery,False,True,False,1
+URS,Athletics,False,True,False,1
+URS,Basketball,True,True,False,2
+URS,Boxing,False,True,False,1
+URS,Canoeing,False,True,False,1
+URS,Cycling,False,True,False,1
+URS,Diving,False,True,False,1
+URS,Equestrianism,False,True,False,1
+URS,Fencing,False,True,False,1
+URS,Football,False,True,False,1
+URS,Gymnastics,True,True,False,2
+URS,Judo,False,True,False,1
+URS,Modern Pentathlon,True,True,False,2
+URS,Rowing,False,True,False,1
+URS,Sailing,False,True,False,1
+URS,Shooting,False,True,False,1
+URS,Swimming,False,True,False,1
+URS,Volleyball,True,True,False,2
+URS,Water Polo,False,True,False,1
+URS,Weightlifting,False,True,False,1
+URS,Wrestling,False,True,False,1
+URU,Rowing,False,False,True,1
+USA,3x3 Basketball,True,False,False,1
+USA,Archery,True,False,False,1
+USA,Artistic Gymnastics,True,False,False,1
+USA,Athletics,True,True,True,3
+USA,Baseball,True,False,False,1
+USA,Baseball/Softball,True,False,False,1
+USA,Basketball,True,True,False,2
+USA,Beach Volleyball,True,True,False,2
+USA,Boxing,True,True,False,2
+USA,Breaking,True,False,False,1
+USA,Canoeing,False,True,False,1
+USA,Cycling,False,True,False,1
+USA,Cycling BMX Freestyle,True,False,False,1
+USA,Diving,True,True,False,2
+USA,Equestrianism,True,True,False,2
+USA,Fencing,False,True,False,1
+USA,Football,False,True,False,1
+USA,Golf,True,True,False,2
+USA,Gymnastics,True,True,False,2
+USA,Ice Hockey,True,False,False,1
+USA,Jeu De Paume,True,False,False,1
+USA,Judo,False,True,False,1
+USA,Lacrosse,True,False,False,1
+USA,Modern Pentathlon,False,True,False,1
+USA,Polo,True,False,False,1
+USA,Roque,True,False,False,1
+USA,Rowing,True,True,False,2
+USA,Rugby,True,False,False,1
+USA,Sailing,True,True,False,2
+USA,Shooting,True,True,False,2
+USA,Skateboarding,True,False,False,1
+USA,Softball,True,True,False,2
+USA,Sport Climbing,True,False,False,1
+USA,Surfing,True,False,False,1
+USA,Swimming,True,True,False,2
+USA,Synchronized Swimming,True,True,False,2
+USA,Taekwondo,False,True,False,1
+USA,Tennis,True,True,False,2
+USA,Tug-Of-War,True,False,False,1
+USA,Volleyball,True,True,False,2
+USA,Water Polo,True,True,False,2
+USA,Weightlifting,False,True,False,1
+USA,Wrestling,True,True,False,2
+UZB,Boxing,False,True,True,2
+UZB,Judo,False,True,False,1
+UZB,Weightlifting,False,True,False,1
+UZB,Wrestling,False,True,False,1
+VEN,Boxing,False,True,True,2
+VIE,Shooting,False,False,True,1
+WIF,Athletics,False,False,True,1
+YUG,Basketball,False,True,False,1
+YUG,Boxing,False,True,False,1
+YUG,Football,False,True,False,1
+YUG,Handball,False,True,False,1
+YUG,Rowing,False,True,False,1
+YUG,Water Polo,False,True,False,1
+YUG,Wrestling,False,True,False,1
+ZAM,Athletics,False,False,True,1
+ZAM,Boxing,False,False,True,1
+ZIM,Swimming,False,False,True,1
