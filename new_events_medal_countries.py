@@ -1,6 +1,28 @@
 import pandas as pd
 import json
 
+"""
+2025_Problem_C_Data/summerOly_athletes.csv是记录了历届奥运会各国运动员获奖情况的csv长表格。
+表头：Name,Sex,Team,NOC,Year,City,Sport,Event,Medal
+内容举例：Minna Aalto,F,Finland,FIN,2000,Sydney,Sailing,Sailing Women's Windsurfer,No medal
+Medal有四种类型:No medal,Gold,Silver,Bronze
+
+先删除Name,Sex两列，再drop_duplicate，这样团体项目只记一次奖牌。
+
+你现在需统计对于新增的项目(Event)，获取项目在增加后，那一届和后面两届的获奖国家，保存为json格式。
+内容举例：[
+{
+"event":"Gymnastics Men's Individual All-Around" ,
+"add_year":1952,
+0:["country1","country2"...], #项目新增时的那一届 这个例子里就是1952年这个event获奖的国家
+1:["country1","country2"...], #项目新增后的那一届 1956年这个event获奖的国家
+2:["country1","country2"...] #项目新增后的第二届 1960年这个event获奖的国家
+},
+...
+
+]
+
+"""
 # 读取数据并预处理
 df = pd.read_csv("2025_Problem_C_Data/summerOly_athletes.csv")
 df = df.drop(columns=["Name", "Sex"])
