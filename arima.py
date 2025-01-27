@@ -131,10 +131,12 @@ def residual_analysis(model, series, country):
     log_print(f"Shapiro-Wilk 正态性检验 p 值: {p_value}")
     if p_value > 0.05:
         log_print("残差序列接近正态分布")
+        is_normal = True
     else:
         log_print("残差序列不服从正态分布")
+        is_normal = False
 
-    return resid_fig, qq_fig
+    return resid_fig, qq_fig, is_normal, p_value
 
 
 # 自动选择 ARIMA 模型的 p 和 q 值
@@ -156,8 +158,10 @@ def auto_select_pq(series, max_p=5, max_q=5):
             except Exception as e:
                 continue  # 若模型拟合失败则跳过
 
-    log_print(f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}")
-    return best_model, best_order
+    log_print(
+        f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}"
+    )
+    return best_model, best_order, best_aic
 
 
 # 预测并绘制图表
@@ -247,7 +251,7 @@ def forecast_and_plot(
 
     plt.title(f"ARIMA Prediction of {country}")
     plt.legend()
-    return fig
+    return fig, forecast, conf_int_90, conf_int_95, conf_int_99
 
 
 # 生成模拟时间序列数据
@@ -263,7 +267,7 @@ def generate_test_series():
 
 
 # 主程序
-def main(country):
+def main(country, save):
     data, real_data = get_country_data(country)
     # 选择要建模的序列（例如：'Value' 列）
     series = data["Total"]
@@ -285,14 +289,14 @@ def main(country):
     fig1 = plot_acf_pacf(diff_series, country)
 
     # 自动选择 p, q 值
-    best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
+    best_model, best_order, aic = auto_select_pq(diff_series, max_p=5, max_q=5)
 
     # 输出最优模型
     log_print(f"最优模型：ARIMA{best_order}")
 
     # 预测并绘制结果
     real_series = real_data["Total"]
-    fig2 = forecast_and_plot(
+    fig2, forecast, conf_int_90, conf_int_95, conf_int_99 = forecast_and_plot(
         series,
         best_model,
         n_forecast=N_FORECAST,
@@ -303,18 +307,28 @@ def main(country):
     )
 
     # 事后检验：残差分析
-    fig3, fig4 = residual_analysis(best_model, series, country)
+    fig3, fig4, normal, p_value = residual_analysis(best_model, series, country)
+    if save:
+        fig1.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_acf-pacf.png")
+        fig2.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_forecast.png")
+        fig3.savefig(
+            SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_resid-acf-pacf.png"
+        )
+        fig4.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_qqplot.png")
 
-    fig1.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_acf-pacf.png")
-    fig2.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_forecast.png")
-    fig3.savefig(
-        SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_resid-acf-pacf.png"
+    return (
+        forecast,
+        conf_int_90,
+        conf_int_95,
+        conf_int_99,
+        normal,
+        p_value,
+        aic,
     )
-    fig4.savefig(SAVE_FOLDER + f"{country}_{BEGIN_YEAR}_{N_FORECAST}_qqplot.png")
 
 
 if __name__ == "__main__":
-    countries=MEDAL_COUNTS['NOC'].unique()
+    countries = MEDAL_COUNTS["NOC"].unique()
     # 高绩效-均衡型，美国、中国、德国、法国，中等绩效-稳定型，意大利、加拿大、西班牙、瑞典奖牌中等且波动小。这两类
     # countries = (
     #     "France",
@@ -328,11 +342,32 @@ if __name__ == "__main__":
     #     "Sweden",
     # )
     log_print(f"{len(countries)=}")
+    with open("arima_results.csv", "w") as file:
+        file.write(
+            "NOC,forecast,conf_int_90_lower,conf_int_90_upper,conf_int_95_lower,conf_int_95_upper,conf_int_99_lower,conf_int_99_upper,normal,p_value,aic\n"
+        )
+
     for i, NOC in enumerate(countries):
-        log_print(f"\t{i}\tTRYING {NOC=}:")
-        # main(NOC)
-        try:
-            main(NOC)
-        except Exception as e:
-            err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
-        plt.close("all")
+        with open("arima_results.csv", "a") as file:
+            log_print(f"\t{i}\tTRYING {NOC=}:")
+
+            try:
+                ret = main(NOC, False)
+            except Exception as e:
+                err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
+                continue
+
+            if ret is None:
+                continue
+            forecast, conf_int_90, conf_int_95, conf_int_99, normal, p_value, aic = ret
+            conf_int_90 = f"{conf_int_90.loc[:,'lower Total'][0] :.2f},{conf_int_90.loc[:,'upper Total'][0] :.2f}"
+            conf_int_95 = f"{conf_int_95.loc[:,'lower Total'][0] :.2f},{conf_int_95.loc[:,'upper Total'][0] :.2f}"
+            conf_int_99 = f"{conf_int_99.loc[:,'lower Total'][0] :.2f},{conf_int_99.loc[:,'upper Total'][0] :.2f}"
+
+            file.write(
+                f"{NOC},{forecast[-1]},{conf_int_90},{conf_int_95},{conf_int_99},{normal},{p_value},{aic}\n"
+            )
+
+            # except Exception as e:
+            #     err_print(f"ERROR in {NOC=}: {e}, {type(e)=}")
+            plt.close("all")
