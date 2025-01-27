@@ -58,6 +58,8 @@ def ploot(series, real_series, country):
     plt.plot(real_series, label="actual")
 
     plt.title(f"Performance of {country}")
+    plt.xlabel("Year")
+    plt.ylabel("Medal Count")
     plt.legend()
     plt.savefig(f"plots/host_effect_demo/{country}_{BEGIN_YEAR}.png")
     return fig
@@ -65,7 +67,7 @@ def ploot(series, real_series, country):
 
 if __name__ == "__main__":
 
-    countries = MEDAL_COUNTS[MEDAL_COUNTS['Host']==True]["NOC"].unique()
+    countries = MEDAL_COUNTS[MEDAL_COUNTS["Host"] == True]["NOC"].unique()
     # 高绩效-均衡型，美国、中国、德国、法国，中等绩效-稳定型，意大利、加拿大、西班牙、瑞典奖牌中等且波动小。这两类
 
     for c in countries:
