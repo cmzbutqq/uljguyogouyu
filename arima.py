@@ -74,7 +74,7 @@ def get_country_data(NOC):
 # 事前检验：ADF 检验平稳性
 def adf_test(series):
     result = adfuller(series)
-    print(f"ADF 检验 p 值: {result[1]}")
+    log_print(f"ADF 检验 p 值: {result[1]}")
     return result[1]
 
 
@@ -86,12 +86,12 @@ def difference_until_stationary(series, max_diff=3):
     while adf_test(diff_series) > 0.05 and diff_count < max_diff:
         diff_series = diff_series.diff().dropna()
         diff_count += 1
-        print(f"已进行 {diff_count} 次差分")
+        log_print(f"已进行 {diff_count} 次差分")
 
     if adf_test(diff_series) <= 0.05:
-        print("序列已经平稳")
+        log_print("序列已经平稳")
     else:
-        print("差分次数超过最大限制，序列仍然不平稳")
+        log_print("差分次数超过最大限制，序列仍然不平稳")
 
     return diff_series
 
@@ -128,11 +128,11 @@ def residual_analysis(model, series, country):
 
     # 正态性检验
     _, p_value = shapiro(residuals)
-    print(f"Shapiro-Wilk 正态性检验 p 值: {p_value}")
+    log_print(f"Shapiro-Wilk 正态性检验 p 值: {p_value}")
     if p_value > 0.05:
-        print("残差序列接近正态分布")
+        log_print("残差序列接近正态分布")
     else:
-        print("残差序列不服从正态分布")
+        log_print("残差序列不服从正态分布")
 
     return resid_fig, qq_fig
 
@@ -156,7 +156,7 @@ def auto_select_pq(series, max_p=5, max_q=5):
             except Exception as e:
                 continue  # 若模型拟合失败则跳过
 
-    print(f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}")
+    log_print(f"最优模型的阶数为 p={best_order[0]}, d=1, q={best_order[2]}，AIC={best_aic}")
     return best_model, best_order
 
 
@@ -272,9 +272,9 @@ def main(country):
         return
 
     # 事前检验：平稳性检验，自动差分
-    print("初始序列平稳性检验：")
+    log_print("初始序列平稳性检验：")
     if adf_test(series) > 0.05:
-        print("序列非平稳，正在进行差分...")
+        log_print("序列非平稳，正在进行差分...")
         diff_series = difference_until_stationary(series)
         diff_count = 1  # 标记差分次数
     else:
@@ -288,7 +288,7 @@ def main(country):
     best_model, best_order = auto_select_pq(diff_series, max_p=5, max_q=5)
 
     # 输出最优模型
-    print(f"最优模型：ARIMA{best_order}")
+    log_print(f"最优模型：ARIMA{best_order}")
 
     # 预测并绘制结果
     real_series = real_data["Total"]
