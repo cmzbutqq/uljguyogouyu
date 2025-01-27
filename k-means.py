@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+import style
 
 """
 k-means聚类分析
@@ -11,12 +12,12 @@ countries.csv
 country_clusters.csv
 """
 
-SEED = 42
+SEED = 234
 pd.set_option("display.max_rows", None)  # 不限制行数
 # 假设df是包含上述数据的DataFrame
 df = pd.read_csv("countries.csv")  # 用实际文件路径替换
 # 选择要聚类的特征
-features = ["Events", "Medals", "Golds", "LNM", "CV", "Focus"]
+features = ["CONTIN", "LNM", "CV", "Focus"]
 # 标准化特征
 X = StandardScaler().fit_transform(df[features])
 # 确定K值
@@ -33,12 +34,15 @@ def plot_elbow_method():
     plt.title("Elbow Method")
     plt.xlabel("Number of clusters")
     plt.ylabel("WCSS")
+    plt.savefig("plots/kmeans/Elbow_Method.png")
     plt.show()
-    # plt.savefig('plots/Elbow_Method.png')
+    plt.close("all")
 
+
+plot_elbow_method()
 
 # 选择WCSS下降速度明显变缓的点作为K值
-k = 5
+k = 6
 kmeans = KMeans(n_clusters=k, init="k-means++", random_state=SEED)
 df["cluster"] = kmeans.fit_predict(X)
 
@@ -73,7 +77,9 @@ def plot2D():
     plt.xlabel("Principal Component 1")
     plt.ylabel("Principal Component 2")
     plt.title("2D KMeans Clustering after PCA")
+    plt.savefig("plots/kmeans/2d.png",dpi=300)
     plt.show()
+    plt.close("all")
 
 
 def plot3D():
@@ -83,10 +89,10 @@ def plot3D():
     # 可视化
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
-    ax.scatter(
-        df_pca[:, 0], df_pca[:, 1], df_pca[:, 2], c=df["cluster"], cmap="viridis"
-    )
+    ax.scatter(df_pca[:, 0], df_pca[:, 1], df_pca[:, 2], c=df["cluster"])
+    plt.savefig("plots/kmeans/3d.png",dpi=300)
     plt.show()
+    plt.close("all")
 
 
 def plot_silhouette(data, cluster_labels, n_clusters):
@@ -115,6 +121,7 @@ def plot_silhouette(data, cluster_labels, n_clusters):
         )
 
         y_lower = y_upper + 10
+    plt.savefig("plots/kmeans/silhouette.png", dpi=300)
 
     plt.show()
 
@@ -123,6 +130,7 @@ import seaborn as sns
 
 plt.figure()
 sns.pairplot(df[features + ["cluster"]], hue="cluster")
+plt.savefig("plots/kmeans/pairplot.png", dpi=300)
 plt.show()
 # plot_silhouette(df[features], df['cluster'],k)
 

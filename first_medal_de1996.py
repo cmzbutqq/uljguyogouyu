@@ -1,0 +1,124 @@
+import csv
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+import seaborn as sns
+
+plt.rcParams["font.sans-serif"] = ["SimHei"]  # 用来正常显示中文标签
+plt.rcParams["axes.unicode_minus"] = False  # 用来正常显示负号
+
+path = "2025_Problem_C_Data/summerOly_medal_counts.csv"
+
+
+def main():
+    """主数据处理函数"""
+    country_first_year = {}
+    year_first_countries = {}
+
+    with open(path, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        headers = next(reader)  # 读取标题行
+
+        # 验证CSV格式
+        if (
+            len(headers) < 7
+            or headers[1] != "NOC"
+            or headers[5] != "Total"
+            or headers[6] != "Year"
+        ):
+            raise ValueError("CSV文件格式不符合预期")
+
+        for row in reader:
+            if len(row) < 7:
+                continue  # 跳过不完整行
+
+            noc = row[1].strip()
+            try:
+                total = int(row[5])
+                year = int(row[6])
+            except (ValueError, IndexError):
+                continue  # 跳过无效数据
+
+            if total > 0:  # 仅处理有奖牌记录
+                # 更新首次获奖年份
+                if noc not in country_first_year or year < country_first_year[noc]:
+                    country_first_year[noc] = year
+
+    # 构建年份字典
+    for country, year in country_first_year.items():
+        year_first_countries.setdefault(year, []).append(country)
+
+    # 按年份排序输出
+    print("各年份首次获奖国家：")
+    for year in sorted(year_first_countries):
+        countries = sorted(year_first_countries[year])
+        print(f"{year}: {len(countries)}国 - {', '.join(countries)}")
+
+    return year_first_countries, country_first_year
+
+
+def normality_analysis(year_data):
+    """正态性检验分析"""
+    # 筛选样本：1992-2024年，排除1996
+    valid_years = [y for y in year_data if 1992 <= y <= 2024 and y != 1996]
+    sample = [len(year_data[y]) for y in sorted(valid_years)]
+
+    # 显示样本信息
+    print("\n=== 分析样本 ===")
+    print(f"时间范围：{min(valid_years)}-{max(valid_years)}")
+    print(f"排除年份：1996")
+    print(f"样本数量：{len(sample)}")
+    print("年份分布：")
+    for y in sorted(valid_years):
+        print(f"  {y}: {len(year_data[y])}国")
+
+    # 执行正态性检验
+    print("\n=== 正态性检验结果 ===")
+    # Shapiro-Wilk检验（适合小样本）
+    shapiro_stat, shapiro_p = stats.shapiro(sample)
+    print(f"Shapiro-Wilk检验：W = {shapiro_stat:.3f}, p = {shapiro_p:.4f}")
+
+    # Kolmogorov-Smirnov检验
+    ks_stat, ks_p = stats.kstest(sample, "norm", args=(np.mean(sample), np.std(sample)))
+    print(f"Kolmogorov-Smirnov检验：D = {ks_stat:.3f}, p = {ks_p:.4f}")
+
+    # 可视化诊断图
+    plt.figure(figsize=(12, 5))
+
+    # 直方图
+    plt.subplot(1, 2, 1)
+    sns.histplot(sample, kde=True, stat="density", color="steelblue")
+    xmin, xmax = plt.xlim()
+    x = np.linspace(xmin, xmax, 100)
+    p = stats.norm.pdf(x, np.mean(sample), np.std(sample))
+    plt.plot(x, p, "r--", linewidth=2)
+    plt.title("数据分布直方图")
+    plt.xlabel("新增国家数量")
+    plt.ylabel("密度")
+
+    # Q-Q图
+    plt.subplot(1, 2, 2)
+    stats.probplot(sample, dist="norm", plot=plt)
+    plt.title("正态Q-Q图")
+
+    plt.tight_layout()
+    plt.show()
+
+    # 结果解读
+    alpha = 0.05
+    conclusion = "服从正态分布" if shapiro_p > alpha else "不服从正态分布"
+    print(f"\n结论（α={alpha}）：数据{conclusion}")
+
+
+if __name__ == "__main__":
+    # 执行主程序
+    year_dict, country_dict = main()
+
+    # 显示基本统计
+    print("\n=== 全局统计 ===")
+    print(f"总国家数：{len(country_dict)}")
+    print(f"时间跨度：{min(year_dict)}-{max(year_dict)}")
+
+    # 执行正态性检验
+    if year_dict:
+        normality_analysis(year_dict)
