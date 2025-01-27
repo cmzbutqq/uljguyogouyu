@@ -87,7 +87,8 @@ def normality_analysis(year_data):
 
     # 直方图
     plt.subplot(1, 2, 1)
-    sns.histplot(sample, kde=True, stat="density", color="steelblue")
+    # sns.histplot(sample, kde=True, stat="density", color="steelblue", element="step")
+    sns.kdeplot(data=sample, color="steelblue")
     xmin, xmax = plt.xlim()
     x = np.linspace(xmin, xmax, 100)
     p = stats.norm.pdf(x, np.mean(sample), np.std(sample))
@@ -102,13 +103,14 @@ def normality_analysis(year_data):
     plt.title("Q-Q Plot")
 
     plt.tight_layout()
-    plt.savefig("plots/first_medal/normality_analysis.png",dpi=300)
+    plt.savefig("plots/first_medal/normality_analysis.png", dpi=300)
     plt.show()
 
     # 结果解读
     alpha = 0.05
     conclusion = "服从正态分布" if shapiro_p > alpha else "不服从正态分布"
     print(f"\n结论（α={alpha}）：数据{conclusion}")
+    return x, p
 
 
 if __name__ == "__main__":
