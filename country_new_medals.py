@@ -46,7 +46,10 @@ def make_csv():
 
 
 df = pd.read_csv("country_new_medals.csv")
-
+# +++ 新增CV值计算 +++
+# 计算所有国家的奖牌数变异系数（标准差/均值）
+cv = (df['new_event_medal'].std() / df['new_event_medal'].mean()) * 100
+print(f"new events CV: {cv:.2f}%")  # 示例输出：CV值（变异系数）: 150.23%
 
 def bar_rank():
 

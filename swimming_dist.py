@@ -17,6 +17,10 @@ medal_counts = df["Team"].value_counts().reset_index()
 medal_counts.columns = ["Country", "Total Medals"]
 medal_counts = medal_counts.sort_values("Total Medals", ascending=False)
 
+# 计算变异系数CV（标准差/均值，百分比形式）
+cv = (medal_counts["Total Medals"].std() / medal_counts["Total Medals"].mean()) * 100
+print(f"CV of Swimming: {cv:.2f}%")
+
 # 提取前10名用于饼图
 top10 = medal_counts.head(10)
 others_sum = medal_counts["Total Medals"][10:].sum()
@@ -42,17 +46,6 @@ plt.tight_layout()
 plt.savefig("plots/swimming_dist_bar.png", dpi=300)
 plt.show()
 
-# --------------------------
-# 绘制横向柱状图（推荐，避免标签重叠）
-# --------------------------
-# plt.figure(figsize=(10, 20))
-# bars = plt.barh(medal_counts["Country"], medal_counts["Total Medals"], color="#2ca02c")
-# plt.xlabel("Total Medals", fontsize=12)
-# plt.ylabel("Country", fontsize=12)
-# plt.title("All Countries Swimming Medals (1992-2020)", fontsize=14)
-# plt.gca().invert_yaxis()  # 从上到下按奖牌数降序排列
-# plt.tight_layout()
-# plt.show()
 
 # --------------------------
 # 绘制前10国家+Others的饼图

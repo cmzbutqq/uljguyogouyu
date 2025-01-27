@@ -23,6 +23,9 @@ pie_data = pd.concat(
 # 设置全局样式
 plt.style.use("ggplot")
 
+# 计算变异系数CV（标准差/均值，百分比形式）
+cv = (medal_counts["Total Medals"].std() / medal_counts["Total Medals"].mean()) * 100
+print(f"CV of Athletic: {cv:.2f}%")
 # --------------------------
 # 绘制所有国家的柱状图（完整排名）
 # --------------------------
