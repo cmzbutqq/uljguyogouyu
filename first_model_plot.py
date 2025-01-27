@@ -88,10 +88,11 @@ def visualize_first_wins(year_data):
 
     # 标记特殊年份
     highlights = {
-        1896: "首届现代奥运会",
-        1960: "非洲独立年",
-        1992: "苏联解体后",
-        2008: "北京奥运会",
+        1896: "first Olympics",
+        1948: "after WWII",
+        1960: "year of Africa",
+        1992: "Dissolution of the Soviet Union",
+        1996: "",
     }
     for bar in bars:
         year = bar.get_x() + bar.get_width() / 2
@@ -110,9 +111,17 @@ def visualize_first_wins(year_data):
             )
 
     # 图表设置
-    plt.title("各国首次获得夏季奥运会奖牌年份分布 (1896-2012)", fontsize=14, pad=20)
-    plt.xlabel("奥运年份", fontsize=12, labelpad=10)
-    plt.ylabel("首次获奖国家数量", fontsize=12, labelpad=10)
+    plt.title(
+        "Distribution of first Summer Olympics medals by country (1896-2012)",
+        fontsize=14,
+        pad=20,
+    )
+    plt.xlabel("Year", fontsize=12, labelpad=10)
+    plt.ylabel(
+        "Number of countries receiving their first medals",
+        fontsize=12,
+        labelpad=10,
+    )
     plt.xticks(years, rotation=60, fontsize=9)
     plt.yticks(fontsize=9)
     plt.grid(axis="y", linestyle="--", alpha=0.6)
@@ -122,6 +131,7 @@ def visualize_first_wins(year_data):
         plt.text(year, count + 0.3, str(count), ha="center", va="bottom", fontsize=9)
 
     plt.tight_layout()
+    plt.savefig("plots/first_medal/bar.png",dpi=300)
     plt.show()
 
 
