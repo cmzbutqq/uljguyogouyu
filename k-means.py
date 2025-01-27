@@ -38,7 +38,6 @@ def plot_elbow_method():
     plt.show()
     plt.close("all")
 
-
 plot_elbow_method()
 
 # 选择WCSS下降速度明显变缓的点作为K值
@@ -150,3 +149,8 @@ for feature in features:
     # 判断显著性（假设显著性水平为0.05）
     significant = "显著" if p_value < 0.05 else "不显著"
     print(f"{feature}: F值={f_stat:.2f}, p值={p_value:.4f} ({significant})")
+
+if __name__=="__main__":
+    plot2D()
+    plot3D()
+    
