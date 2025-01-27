@@ -71,7 +71,24 @@ def normality_analysis(year_data):
     print("年份分布：")
     for y in sorted(valid_years):
         print(f"  {y}: {len(year_data[y])}国")
+        
+    
+    # 新增置信区间计算（在样本信息输出部分之后）
+    print("\n=== 置信区间计算 ===")
+    confidence_level = 0.95
+    n = len(sample)
+    mean = np.mean(sample)
+    std_err = stats.sem(sample)  # 标准误
 
+    # 使用t分布计算置信区间（适用于小样本）
+    ci_low, ci_high = stats.t.interval(
+        confidence=confidence_level, df=n - 1, loc=mean, scale=std_err
+    )
+    print(
+        f"均值置信区间（{int(confidence_level*100)}%）: ({ci_low:.2f}, {ci_high:.2f})"
+    )
+    
+    
     # 执行正态性检验
     print("\n=== 正态性检验结果 ===")
     # Shapiro-Wilk检验（适合小样本）
