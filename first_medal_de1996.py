@@ -92,16 +92,17 @@ def normality_analysis(year_data):
     x = np.linspace(xmin, xmax, 100)
     p = stats.norm.pdf(x, np.mean(sample), np.std(sample))
     plt.plot(x, p, "r--", linewidth=2)
-    plt.title("数据分布直方图")
-    plt.xlabel("新增国家数量")
-    plt.ylabel("密度")
+    plt.title("PDF Histogram")
+    plt.xlabel("Number of additional countries")
+    plt.ylabel("Density of Probability")
 
     # Q-Q图
     plt.subplot(1, 2, 2)
     stats.probplot(sample, dist="norm", plot=plt)
-    plt.title("正态Q-Q图")
+    plt.title("Q-Q Plot")
 
     plt.tight_layout()
+    plt.savefig("plots/first_medal/normality_analysis.png",dpi=300)
     plt.show()
 
     # 结果解读
